@@ -48,7 +48,8 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-12 col-md-10 col-lg-8">
-          <p>Es simple, confidencial y se completa en 3 pasos. Tu empleador no es notificado.</p>
+          <p>Es simple, confidencial y se completa en 3 pasos.<br>Tu afiliación es privada: tu empleador no será
+            informado.</p>
           <div class="wizard-progress mb-4">
             <div class="step-indicator active">1. Personal</div>
             <div class="step-indicator">2. Profesional</div>
@@ -64,11 +65,11 @@
                   <div class="row">
                     <div class="form-group required col-md-4 custom-floating-label">
                       <input class="form-control" id="apellidos" name="apellidos" placeholder=" " required=""
-                        type="text" /><label class="control-label" for="apellidos">Apellido</label>
+                        type="text" /><label class="control-label" for="apellidos">Apellido(s)</label>
                     </div>
                     <div class="form-group required col-md-4 custom-floating-label">
                       <input class="form-control" id="nombres" name="nombres" placeholder=" " required=""
-                        type="text" /><label class="control-label" for="nombres">Nombre</label>
+                        type="text" /><label class="control-label" for="nombres">Nombre(s)</label>
                     </div>
                     <div class="form-group required col-md-4 custom-floating-label">
                       <input class="form-control" id="cuil" name="cuil" placeholder=" " required="" type="text" /><label
@@ -79,11 +80,11 @@
                   <div class="row">
                     <div class="form-group required col-md-6 custom-floating-label">
                       <input class="form-control" id="email" name="email" placeholder=" " required=""
-                        type="email" /><label class="control-label" for="email">Correo electrónico</label>
+                        type="email" /><label class="control-label" for="email">Email</label>
                     </div>
                     <div class="form-group required col-md-6 custom-floating-label">
                       <input class="form-control" id="telefono" name="telefono" placeholder=" " required=""
-                        type="tel" /><label class="control-label" for="telefono">Teléfono celular</label>
+                        type="tel" /><label class="control-label" for="telefono">Teléfono</label>
                     </div>
                   </div>
                   <div class="row">
@@ -93,7 +94,8 @@
                         <div class="upload-icon">🪪</div>
                         <div class="upload-text">
                           <div class="upload-label">Arrastrá o clic — DNI Frente</div>
-                          <div class="upload-hint">Imagen o PDF — Máx. 5 MB</div>
+                          <div class="upload-hint">Usamos esta documentación solo para validar identidad. Es
+                            confidencial.</div>
                           <div class="upload-filename" id="fname_dni_frente" style="display:none;"></div>
                         </div>
                         <input id="doc_dni_frente" name="doc_dni_frente" required="" type="file"
@@ -106,7 +108,8 @@
                         <div class="upload-icon">🪪</div>
                         <div class="upload-text">
                           <div class="upload-label">Arrastrá o clic — DNI Dorso</div>
-                          <div class="upload-hint">Imagen o PDF — Máx. 5 MB</div>
+                          <div class="upload-hint">Usamos esta documentación solo para validar identidad. Es
+                            confidencial.</div>
                           <div class="upload-filename" id="fname_dni_dorso" style="display:none;"></div>
                         </div>
                         <input id="doc_dni_dorso" name="doc_dni_dorso" required="" type="file" accept="image/*,.pdf" />
@@ -118,7 +121,7 @@
                       <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="chk_domicilio_diferente" value="1">
                         <label class="form-check-label" for="chk_domicilio_diferente">
-                          Mi domicilio real es diferente al de mi DNI
+                          Vivo en un domicilio diferente al que figura en mi DNI
                         </label>
                       </div>
                     </div>
@@ -140,7 +143,7 @@
                       </div>
                       <div class="form-group required col-md-3 custom-floating-label">
                         <input class="form-control" id="personal_cp" name="personal_cp" placeholder=" " type="text" />
-                        <label class="control-label" for="personal_cp">Cód. Postal</label>
+                        <label class="control-label" for="personal_cp">Código postal</label>
                       </div>
                     </div>
                     <div class="row">
@@ -192,8 +195,8 @@
                     <div class="form-group required col-md-12 custom-floating-label">
                       <input class="form-control" id="rol_profesional" name="rol_profesional" placeholder=" "
                         type="text" required="" />
-                      <label class="control-label" for="rol_profesional">Rol profesional</label>
-                      <div class="field-help">El rol que desempeñás, por ejemplo: Análisis de Calidad Jr.</div>
+                      <label class="control-label" for="rol_profesional">¿Cuál es tu rol?</label>
+                      <div class="field-help">Por ejemplo: QA Jr., Desarrollador/a Backend, Soporte técnico, etc.</div>
                     </div>
                   </div>
 
@@ -201,13 +204,12 @@
                     <div class="form-group required custom-floating-label col-md-12">
                       <select class="custom-select" id="tipo_relacion_laboral" name="tipo_relacion_laboral" required="">
                         <option selected="" value="">Seleccione...</option>
-                        <option value="dependencia_con_recibo">Empleado con recibo de sueldo</option>
-                        <option value="dependencia_sin_recibo">Empleado sin recibo de sueldo</option>
-                        <option value="independiente">Profesional independiente</option>
-                        <option value="no_trabajando">Actualmente no trabajo en informática (desempleado, estudiante,
-                          otro)</option>
+                        <option value="dependencia_con_recibo">Trabajo en relación de dependencia (con recibo)</option>
+                        <option value="dependencia_sin_recibo">Trabajo en relación de dependencia (sin recibo)</option>
+                        <option value="independiente">Trabajo de forma independiente</option>
+                        <option value="no_trabajando">No estoy trabajando en informática</option>
                       </select>
-                      <label class="control-label" for="tipo_relacion_laboral">Tipo de relación laboral</label>
+                      <label class="control-label" for="tipo_relacion_laboral">¿Cuál es tu situación laboral?</label>
                     </div>
                   </div>
 
@@ -225,12 +227,12 @@
                     <div class="form-group required custom-floating-label col-md-12">
                       <select class="custom-select" id="lugar_trabajo" name="lugar_trabajo">
                         <option selected="" value="">Seleccione...</option>
-                        <option value="sede" id="opt_sede">Sede de la empresa</option>
-                        <option value="casa">Mi domicilio (home office)</option>
-                        <option value="hibrido">Híbrido (entre sede empresa y home office)</option>
+                        <option value="sede" id="opt_sede">Trabajo en la sede de la empresa</option>
+                        <option value="casa">Trabajo desde mi casa (home office)</option>
+                        <option value="hibrido">Trabajo en modalidad híbrida</option>
                       </select>
-                      <label class="control-label" for="lugar_trabajo">Lugar de trabajo</label>
-                      <div class="field-help">Desde dónde realizás tu trabajo.</div>
+                      <label class="control-label" for="lugar_trabajo">¿Desde dónde trabajás habitualmente?</label>
+                      <div class="field-help">Desde dónde realizás tu trabajo habitualmente.</div>
                     </div>
                   </div>
 
@@ -240,7 +242,7 @@
                       <div class="form-group col-md-6 custom-floating-label">
                         <input class="form-control" id="empleador_direccion" name="empleador_direccion"
                           placeholder="Calle, Número, Piso, Oficina" type="text" />
-                        <label class="control-label" for="empleador_direccion">Dirección empresa</label>
+                        <label class="control-label" for="empleador_direccion">Dirección de la empresa</label>
                       </div>
                       <div class="form-group col-md-3 custom-floating-label">
                         <input class="form-control" id="empleador_localidad" name="empleador_localidad" placeholder=" "
@@ -249,7 +251,7 @@
                       </div>
                       <div class="form-group col-md-3 custom-floating-label">
                         <input class="form-control" id="empleador_cp" name="empleador_cp" placeholder=" " type="text" />
-                        <label class="control-label" for="empleador_cp">Cód. Postal</label>
+                        <label class="control-label" for="empleador_cp">Código postal</label>
                       </div>
                     </div>
                     <div class="row">
@@ -310,10 +312,7 @@
                         <div class="upload-icon">📄</div>
                         <div class="upload-text">
                           <div class="upload-label">Arrastrá o clic — Último recibo de sueldo</div>
-                          <div class="upload-hint">El recibo es necesario para validar tu vínculo laboral. Cargá el más
-                            reciente
-                            que tengas. Recordá que resguardamos tus datos, <strong>tu empleador no será
-                              notificado</strong>.</div>
+                          <div class="upload-hint">Cargá el recibo más reciente que tengas.<br>Lo usamos únicamente para validar tu vínculo laboral.<br>Es confidencial y no se informa a tu empleador.</div>
                           <div class="upload-filename" id="fname_recibo" style="display:none;"></div>
                         </div>
                         <input id="doc_recibo" name="doc_recibo" type="file" accept="image/*,.pdf" />
@@ -324,10 +323,11 @@
                   <!-- 6) Observaciones laborales (Dependencia / Independiente) -->
                   <div class="row" id="grupo_observaciones" style="display:none;">
                     <div class="form-group col-md-12">
-                      <label class="control-label" for="observaciones_laborales">Agregá información adicional</label>
+                      <label class="control-label" for="observaciones_laborales">Información adicional
+                        (opcional)</label>
                       <textarea class="form-control" id="observaciones_laborales" name="observaciones_laborales"
                         rows="2"
-                        placeholder="Por ej. 'Facturo para empresa en el exterior', 'Cobro una parte en USD', 'Voy una vez al mes a la oficina', etc"></textarea>
+                        placeholder="Por ejemplo: facturo para una empresa del exterior, voy una vez al mes a la oficina, etc."></textarea>
                     </div>
                   </div>
 
@@ -355,17 +355,18 @@
                         </a>
                       </p>
                       <div class="collapse mb-3" id="collapseAyudaAporte">
-                        <p>El aporte sindical es la contribución con la que cada afiliado sostiene los servicios,
-                          beneficios y la estructura que defiende a los trabajadores informáticos.</p>
-                        <p>Tradicionalmente equivale al 3% del salario bruto. En AGC elegimos un modelo flexible: podés
+                        <p>El aporte sindical es la forma en que sostenemos el gremio entre todos. Con esa contribución
+                          financiamos los servicios, beneficios y la estructura que defiende a los trabajadores y
+                          trabajadoras informáticas.</p>
+                        <p>En muchos gremios equivale al 3% del salario bruto. En AGC elegimos un modelo flexible: podés
                           definir un monto mensual fijo según tus posibilidades.</p>
-                        <p class="mb-1">Tu aporte permite financiar:</p>
+                        <p class="mb-1">Tu aporte permite sostener:</p>
                         <ul class="mb-2">
-                          <li>Asesoramiento legal y gremial</li>
-                          <li>Beneficios y descuentos para afiliados</li>
-                          <li>Formación profesional y gremial</li>
-                          <li>Defensa ante conflictos laborales</li>
-                          <li>Negociación colectiva en la industria</li>
+                          <li>• Asesoramiento legal y gremial</li>
+                          <li>• Beneficios y descuentos para afiliados/as</li>
+                          <li>• Formación profesional y gremial</li>
+                          <li>• Defensa ante conflictos laborales</li>
+                          <li>• Negociación colectiva en la industria</li>
                         </ul>
                         <p class="mb-0">Periódicamente te invitamos a revisar y actualizar tu aporte.</p>
                       </div>
@@ -375,7 +376,7 @@
                           <input id="cuota_slider" max="100000" min="25000" step="1000" style="width: 100%;"
                             type="range" value="25000" />
                           <div class="d-flex justify-content-between text-muted small mt-1">
-                            <span>$ 25.000 <span class="text-primary">(Mínimo)</span></span>
+                            <span>$ 25.000 (Mínimo)</span>
                             <span>$ 100.000+</span>
                           </div>
                         </div>
@@ -386,8 +387,8 @@
                           <input class="form-control" id="cuota_sindical" min="25000" name="cuota_sindical"
                             placeholder=" " required="" type="text" value="25000" />
                         </div>
-                        <small class="form-text text-muted" id="cuota_help">Referencia: este monto representa
-                          aproximadamente el 3% de un salario bruto de $700.000.</small>
+                        <small class="form-text text-muted" id="cuota_help">Como referencia: equivale aproximadamente al
+                          3% de un salario bruto de $700.000.</small>
                       </div>
 
                       <script src="https://unpkg.com/imask"></script>
@@ -441,9 +442,7 @@
                           <input class="form-check-input" id="chk_confirma" name="chk_confirma" required=""
                             type="checkbox" value="acepta_terminos" />
                           <label class="form-check-label" for="chk_confirma">
-                            Acepto mis <a href="https://www.agc.org.ar" target="_blank"
-                              rel="noopener noreferrer">derechos y
-                              obligaciones</a> como miembro de la Asociación Gremial de Computación.
+                            Acepto mis derechos y obligaciones como afiliado/a de la Asociación Gremial de Computación.
                           </label>
                         </div>
                       </div>
@@ -451,7 +450,7 @@
                       <div class="d-flex justify-content-between mt-4">
                         <button class="btn btn-secondary btn-prev" type="button">Anterior</button>
                         <a class="btn btn-primary btn-lg px-5 font-weight-bold disabled" id="btn_submit"
-                          style="pointer-events: none;">Enviar solicitud</a>
+                          style="pointer-events: none;">Confirmar afiliación</a>
                       </div>
 
                     </div>

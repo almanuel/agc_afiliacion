@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateCuotaHelp(source) {
         var v = parseFloat(cuotaMask ? cuotaMask.unmaskedValue : (cuotaEl2 ? cuotaEl2.value : 0)) || 0;
         if (cuotaHelp) {
-            cuotaHelp.textContent = 'Referencia: este monto representa aproximadamente el 3% de un salario bruto de $ ' +
+            cuotaHelp.textContent = 'Como referencia: equivale aproximadamente al 3% de un salario bruto de $ ' +
                 Math.round(v * 100 / 3).toLocaleString('es-AR');
         }
         if (source !== 'slider' && cuotaSlider && v >= 25000 && v <= 100000) {
