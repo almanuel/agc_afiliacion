@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var cuotaEl = document.getElementById('cuota_sindical');
 
         if (cuilEl) IMask(cuilEl, { mask: '00-00000000-0' });
-        
+
 
         if (cuotaEl) {
             cuotaMask = IMask(cuotaEl, {
@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 grpHomeOffice.style.display = 'flex';
             }
 
-        } else if (trl === 'dependencia_sin_recibo') {
+        } else if (trl === 'facturo_regular' || trl === 'tercerizado_consultora' || trl === 'socio_cooperativa') {
             grpLugar.style.display = 'flex'; selLugar.setAttribute('required', 'required');
             grpObs.style.display = 'flex';
 

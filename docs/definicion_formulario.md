@@ -77,10 +77,12 @@ Visible solo si el checkbox está marcado.
 | Value | Texto visible |
 |-------|---------------|
 | *(vacío)* | Seleccione... |
-| `dependencia_con_recibo` | Trabajo en relación de dependencia (con recibo) |
-| `dependencia_sin_recibo` | Trabajo en relación de dependencia (sin recibo) |
-| `independiente` | Trabajo de forma independiente |
-| `no_trabajando` | No estoy trabajando en informática |
+| `dependencia_con_recibo` | Trabajo en relación de dependencia (con recibo de sueldo) |
+| `facturo_regular` | Facturo de manera regular a una empresa para la que trabajo de forma continua |
+| `tercerizado_consultora` | Trabajo tercerizado a través de una consultora o agencia |
+| `socio_cooperativa` | Soy socio/a de una cooperativa de trabajo |
+| `independiente` | Trabajo de forma independiente (múltiples clientes / proyectos) |
+| `no_trabajando` | Actualmente no estoy trabajando en informática |
 
 ### Grupo: Lugar de trabajo
 

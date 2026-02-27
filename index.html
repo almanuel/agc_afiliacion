@@ -204,10 +204,16 @@
                     <div class="form-group required custom-floating-label col-md-12">
                       <select class="custom-select" id="tipo_relacion_laboral" name="tipo_relacion_laboral" required="">
                         <option selected="" value="">Seleccione...</option>
-                        <option value="dependencia_con_recibo">Trabajo en relación de dependencia (con recibo)</option>
-                        <option value="dependencia_sin_recibo">Trabajo en relación de dependencia (sin recibo)</option>
-                        <option value="independiente">Trabajo de forma independiente</option>
-                        <option value="no_trabajando">No estoy trabajando en informática</option>
+                        <option value="dependencia_con_recibo">Trabajo en relación de dependencia (con recibo de sueldo)
+                        </option>
+                        <option value="facturo_regular">Facturo de manera regular a una empresa para la que trabajo de
+                          forma continua</option>
+                        <option value="tercerizado_consultora">Trabajo tercerizado a través de una consultora o agencia
+                        </option>
+                        <option value="socio_cooperativa">Soy socio/a de una cooperativa de trabajo</option>
+                        <option value="independiente">Trabajo de forma independiente (múltiples clientes / proyectos)
+                        </option>
+                        <option value="no_trabajando">Actualmente no estoy trabajando en informática</option>
                       </select>
                       <label class="control-label" for="tipo_relacion_laboral">¿Cuál es tu situación laboral?</label>
                     </div>
@@ -312,7 +318,8 @@
                         <div class="upload-icon">📄</div>
                         <div class="upload-text">
                           <div class="upload-label">Arrastrá o clic — Último recibo de sueldo</div>
-                          <div class="upload-hint">Cargá el recibo más reciente que tengas.<br>Lo usamos únicamente para validar tu vínculo laboral.<br>Es confidencial y no se informa a tu empleador.</div>
+                          <div class="upload-hint">Cargá el recibo más reciente que tengas.<br>Lo usamos únicamente para
+                            validar tu vínculo laboral.<br>Es confidencial y no se informa a tu empleador.</div>
                           <div class="upload-filename" id="fname_recibo" style="display:none;"></div>
                         </div>
                         <input id="doc_recibo" name="doc_recibo" type="file" accept="image/*,.pdf" />
@@ -478,32 +485,32 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 py-5">
-        <div class="d-flex justify-content-center">
-          <!-- Facebook -->
-          <a class="social-media-icon" href="https://www.facebook.com/informaticos.ar/" target="_blank">
-            <i aria-hidden="true" class="fab fa-facebook-f fa-lg blue-text mr-md-5 mr-3 fa-2x"> </i>
-          </a>
-          <!-- Twitter -->
-          <a class="social-media-icon" href="https://twitter.com/informaticos_" target="_blank">
-            <i aria-hidden="true" class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-          </a>
-          <!-- Linkedin -->
-          <a class="social-media-icon" href="https://www.linkedin.com/company/informaticos/" target="_blank">
-            <i aria-hidden="true" class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-          </a>
-          <!-- Instagram -->
-          <a class="social-media-icon" href="https://www.instagram.com/informaticos.ar/" target="_blank">
-            <i aria-hidden="true" class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-          </a>
-          <!-- WhatsApp -->
-          <a class="social-media-icon" href="https://wa.me/message/FWROO74ZIM4EL1" target="_blank">
-            <i aria-hidden="true" class="fab fa-whatsapp fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
-          </a>
+          <div class="d-flex justify-content-center">
+            <!-- Facebook -->
+            <a class="social-media-icon" href="https://www.facebook.com/informaticos.ar/" target="_blank">
+              <i aria-hidden="true" class="fab fa-facebook-f fa-lg blue-text mr-md-5 mr-3 fa-2x"> </i>
+            </a>
+            <!-- Twitter -->
+            <a class="social-media-icon" href="https://twitter.com/informaticos_" target="_blank">
+              <i aria-hidden="true" class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            </a>
+            <!-- Linkedin -->
+            <a class="social-media-icon" href="https://www.linkedin.com/company/informaticos/" target="_blank">
+              <i aria-hidden="true" class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            </a>
+            <!-- Instagram -->
+            <a class="social-media-icon" href="https://www.instagram.com/informaticos.ar/" target="_blank">
+              <i aria-hidden="true" class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            </a>
+            <!-- WhatsApp -->
+            <a class="social-media-icon" href="https://wa.me/message/FWROO74ZIM4EL1" target="_blank">
+              <i aria-hidden="true" class="fab fa-whatsapp fa-lg white-text mr-md-5 mr-3 fa-2x"></i>
+            </a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="footer-copyright text-center py-3">© 2026 AGC | Trabajadores Informáticos</div>
+    <div class="footer-copyright text-center py-3">© 2026 AGC | Trabajadores Informáticos</div>
   </footer>
 
   <script crossorigin="anonymous"
