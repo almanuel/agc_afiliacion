@@ -61,286 +61,305 @@
             <div class="step-panel active" id="step-1">
               <div class="card border-0 mb-4">
                 <div class="card-body">
-                  <h4 class="card-title text-primary mb-4">Datos personales</h4>
-                  <div class="row">
-                    <div class="form-group required col-md-4 custom-floating-label">
-                      <input class="form-control" id="apellidos" name="apellidos" placeholder=" " required=""
-                        type="text" /><label class="control-label" for="apellidos">Apellido(s)</label>
-                    </div>
-                    <div class="form-group required col-md-4 custom-floating-label">
-                      <input class="form-control" id="nombres" name="nombres" placeholder=" " required=""
-                        type="text" /><label class="control-label" for="nombres">Nombre(s)</label>
-                    </div>
-                    <div class="form-group required col-md-4 custom-floating-label">
-                      <input class="form-control" id="cuil" name="cuil" placeholder=" " required="" type="text" /><label
-                        class="control-label" for="cuil">CUIL</label>
-                      <div class="field-help">Formato: 20-12345678-9</div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="form-group required col-md-6 custom-floating-label">
-                      <input class="form-control" id="email" name="email" placeholder=" " required=""
-                        type="email" /><label class="control-label" for="email">Email</label>
-                    </div>
-                    <div class="form-group required col-md-6 custom-floating-label">
-                      <input class="form-control" id="telefono" name="telefono" placeholder=" " required=""
-                        type="tel" /><label class="control-label" for="telefono">Teléfono</label>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="form-group required col-md-6">
-                      <label class="control-label" for="doc_dni_frente">DNI Frente</label>
-                      <div class="upload-zone" id="zone_dni_frente">
-                        <div class="upload-icon">🪪</div>
-                        <div class="upload-text">
-                          <div class="upload-label">Arrastrá o clic — DNI Frente</div>
-                          <div class="upload-hint">Usamos esta documentación solo para validar identidad. Es
-                            confidencial.</div>
-                          <div class="upload-filename" id="fname_dni_frente" style="display:none;"></div>
+                  <div class="row justify-content-center">
+                    <div class="col-12 col-md-9">
+                      <h4 class="card-title text-primary mb-4">Datos personales</h4>
+                      <div class="row">
+                        <div class="form-group required col-md-6 custom-floating-label">
+                          <input class="form-control" id="apellidos" name="apellidos" placeholder=" " required=""
+                            type="text" /><label class="control-label" for="apellidos">Apellido(s)</label>
                         </div>
-                        <input id="doc_dni_frente" name="doc_dni_frente" required="" type="file"
-                          accept="image/*,.pdf" />
-                      </div>
-                    </div>
-                    <div class="form-group required col-md-6">
-                      <label class="control-label" for="doc_dni_dorso">DNI Dorso</label>
-                      <div class="upload-zone" id="zone_dni_dorso">
-                        <div class="upload-icon">🪪</div>
-                        <div class="upload-text">
-                          <div class="upload-label">Arrastrá o clic — DNI Dorso</div>
-                          <div class="upload-hint">Usamos esta documentación solo para validar identidad. Es
-                            confidencial.</div>
-                          <div class="upload-filename" id="fname_dni_dorso" style="display:none;"></div>
+                        <div class="form-group required col-md-6 custom-floating-label">
+                          <input class="form-control" id="nombres" name="nombres" placeholder=" " required=""
+                            type="text" /><label class="control-label" for="nombres">Nombre(s)</label>
                         </div>
-                        <input id="doc_dni_dorso" name="doc_dni_dorso" required="" type="file" accept="image/*,.pdf" />
                       </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="form-group col-md-12">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="chk_domicilio_diferente" value="1">
-                        <label class="form-check-label" for="chk_domicilio_diferente">
-                          Vivo en un domicilio diferente al que figura en mi DNI
-                        </label>
+                      <div class="row">
+                        <div class="form-group required col-md-6 custom-floating-label">
+                          <input class="form-control" id="cuil" name="cuil" placeholder=" " required=""
+                            type="text" /><label class="control-label" for="cuil">CUIL</label>
+                          <div class="field-help">Formato: 20-12345678-9</div>
+                        </div>
+                        <div class="form-group required col-md-6 custom-floating-label">
+                          <input class="form-control" id="telefono" name="telefono" placeholder=" " required=""
+                            type="tel" /><label class="control-label" for="telefono">Teléfono</label>
+                        </div>
                       </div>
-                    </div>
-                  </div>
+                      <div class="row">
+                        <div class="form-group required col-md-12 custom-floating-label">
+                          <input class="form-control" id="email" name="email" placeholder=" " required=""
+                            type="email" /><label class="control-label" for="email">Email</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group required col-md-12">
+                          <label class="control-label" for="doc_dni_frente">DNI (frente)</label>
+                          <div class="upload-zone" id="zone_dni_frente">
+                            <div class="upload-icon">🪪</div>
+                            <div class="upload-text">
+                              <div class="upload-label">Arrastrá o clic — DNI (frente)</div>
+                              <div class="upload-hint">Usamos esta documentación solo para validar identidad. Es
+                                confidencial.</div>
+                              <div class="upload-filename" id="fname_dni_frente" style="display:none;"></div>
+                            </div>
+                            <input id="doc_dni_frente" name="doc_dni_frente" required="" type="file"
+                              accept="image/*,.pdf" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group required col-md-12">
+                          <label class="control-label" for="doc_dni_dorso">DNI (dorso)</label>
+                          <div class="upload-zone" id="zone_dni_dorso">
+                            <div class="upload-icon">🪪</div>
+                            <div class="upload-text">
+                              <div class="upload-label">Arrastrá o clic — DNI (dorso)</div>
+                              <div class="upload-hint">Usamos esta documentación solo para validar identidad. Es
+                                confidencial.</div>
+                              <div class="upload-filename" id="fname_dni_dorso" style="display:none;"></div>
+                            </div>
+                            <input id="doc_dni_dorso" name="doc_dni_dorso" required="" type="file"
+                              accept="image/*,.pdf" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group col-md-12">
+                          <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="chk_domicilio_diferente" value="1">
+                            <label class="form-check-label" for="chk_domicilio_diferente">
+                              Vivo en un domicilio diferente al que figura en mi DNI
+                            </label>
+                          </div>
+                        </div>
+                      </div>
 
-                  <!-- Domicilio Personal Alternativo (Paso 1) -->
-                  <div id="grupo_direccion_personal" style="display:none; margin-top: 15px;">
-                    <h5 class="text-primary mb-3">Domicilio actual</h5>
-                    <div class="row">
-                      <div class="form-group required col-md-6 custom-floating-label">
-                        <input class="form-control" id="personal_direccion" name="personal_direccion"
-                          placeholder="Calle, Número, Piso, Oficina" type="text" />
-                        <label class="control-label" for="personal_direccion">Dirección</label>
+                      <!-- Domicilio Personal Alternativo (Paso 1) -->
+                      <div id="grupo_direccion_personal" style="display:none; margin-top: 15px;">
+                        <h5 class="text-primary mb-3">Domicilio actual</h5>
+                        <div class="row">
+                          <div class="form-group required col-md-6 custom-floating-label">
+                            <input class="form-control" id="personal_direccion" name="personal_direccion"
+                              placeholder="Calle, Número, Piso, Oficina" type="text" />
+                            <label class="control-label" for="personal_direccion">Dirección</label>
+                          </div>
+                          <div class="form-group required col-md-3 custom-floating-label">
+                            <input class="form-control" id="personal_localidad" name="personal_localidad"
+                              placeholder=" " type="text" />
+                            <label class="control-label" for="personal_localidad">Localidad</label>
+                          </div>
+                          <div class="form-group required col-md-3 custom-floating-label">
+                            <input class="form-control" id="personal_cp" name="personal_cp" placeholder=" "
+                              type="text" />
+                            <label class="control-label" for="personal_cp">Código postal</label>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="form-group required custom-floating-label col-md-12">
+                            <select class="custom-select" id="personal_provincia" name="personal_provincia" required="">
+                              <option selected="" value="">Seleccione...</option>
+                              <option value="02">Ciudad Autónoma de Buenos Aires</option>
+                              <option value="06">Buenos Aires</option>
+                              <option value="10">Catamarca</option>
+                              <option value="14">Córdoba</option>
+                              <option value="18">Corrientes</option>
+                              <option value="22">Chaco</option>
+                              <option value="26">Chubut</option>
+                              <option value="30">Entre Ríos</option>
+                              <option value="34">Formosa</option>
+                              <option value="38">Jujuy</option>
+                              <option value="42">La Pampa</option>
+                              <option value="46">La Rioja</option>
+                              <option value="50">Mendoza</option>
+                              <option value="54">Misiones</option>
+                              <option value="58">Neuquén</option>
+                              <option value="62">Río Negro</option>
+                              <option value="66">Salta</option>
+                              <option value="70">San Juan</option>
+                              <option value="74">San Luis</option>
+                              <option value="78">Santa Cruz</option>
+                              <option value="82">Santa Fe</option>
+                              <option value="86">Santiago del Estero</option>
+                              <option value="90">Tucumán</option>
+                              <option value="94">Tierra del Fuego, Antártida e Islas del Atlántico Sur</option>
+                            </select>
+                            <label class="control-label" for="personal_provincia">Provincia</label>
+                          </div>
+                        </div>
                       </div>
-                      <div class="form-group required col-md-3 custom-floating-label">
-                        <input class="form-control" id="personal_localidad" name="personal_localidad" placeholder=" "
-                          type="text" />
-                        <label class="control-label" for="personal_localidad">Localidad</label>
-                      </div>
-                      <div class="form-group required col-md-3 custom-floating-label">
-                        <input class="form-control" id="personal_cp" name="personal_cp" placeholder=" " type="text" />
-                        <label class="control-label" for="personal_cp">Código postal</label>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="form-group required custom-floating-label col-md-12">
-                        <select class="custom-select" id="personal_provincia" name="personal_provincia" required="">
-                          <option selected="" value="">Seleccione...</option>
-                          <option value="02">Ciudad Autónoma de Buenos Aires</option>
-                          <option value="06">Buenos Aires</option>
-                          <option value="10">Catamarca</option>
-                          <option value="14">Córdoba</option>
-                          <option value="18">Corrientes</option>
-                          <option value="22">Chaco</option>
-                          <option value="26">Chubut</option>
-                          <option value="30">Entre Ríos</option>
-                          <option value="34">Formosa</option>
-                          <option value="38">Jujuy</option>
-                          <option value="42">La Pampa</option>
-                          <option value="46">La Rioja</option>
-                          <option value="50">Mendoza</option>
-                          <option value="54">Misiones</option>
-                          <option value="58">Neuquén</option>
-                          <option value="62">Río Negro</option>
-                          <option value="66">Salta</option>
-                          <option value="70">San Juan</option>
-                          <option value="74">San Luis</option>
-                          <option value="78">Santa Cruz</option>
-                          <option value="82">Santa Fe</option>
-                          <option value="86">Santiago del Estero</option>
-                          <option value="90">Tucumán</option>
-                          <option value="94">Tierra del Fuego, Antártida e Islas del Atlántico Sur</option>
-                        </select>
-                        <label class="control-label" for="personal_provincia">Provincia</label>
-                      </div>
+
+                      <div class="d-flex justify-content-end mt-3"><button class="btn btn-primary btn-next"
+                          type="button">Siguiente</button></div>
                     </div>
                   </div>
-
-                  <div class="d-flex justify-content-end mt-3"><button class="btn btn-primary btn-next"
-                      type="button">Siguiente</button></div>
                 </div>
               </div>
             </div>
             <div class="step-panel" id="step-2">
               <div class="card border-0 mb-4">
                 <div class="card-body">
-                  <h4 class="card-title text-primary mb-4">Datos laborales</h4>
+                  <div class="row justify-content-center">
+                    <div class="col-12 col-md-9">
+                      <h4 class="card-title text-primary mb-4">Datos laborales</h4>
 
-                  <!-- 0) Rol Profesional - siempre visible y requerido -->
-                  <div class="row">
-                    <div class="form-group required col-md-12 custom-floating-label">
-                      <input class="form-control" id="rol_profesional" name="rol_profesional" placeholder=" "
-                        type="text" required="" />
-                      <label class="control-label" for="rol_profesional">¿Cuál es tu rol?</label>
-                      <div class="field-help">Por ejemplo: QA Jr., Desarrollador/a Backend, Soporte técnico, etc.</div>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="form-group required custom-floating-label col-md-12">
-                      <select class="custom-select" id="tipo_relacion_laboral" name="tipo_relacion_laboral" required="">
-                        <option selected="" value="">Seleccione...</option>
-                        <option value="dependencia_con_recibo">Trabajo en relación de dependencia (con recibo de sueldo)
-                        </option>
-                        <option value="facturo_regular">Facturo de manera regular a una empresa para la que trabajo de
-                          forma continua</option>
-                        <option value="tercerizado_consultora">Trabajo tercerizado a través de una consultora o agencia
-                        </option>
-                        <option value="socio_cooperativa">Soy socio/a de una cooperativa de trabajo</option>
-                        <option value="independiente">Trabajo de forma independiente (múltiples clientes / proyectos)
-                        </option>
-                        <option value="no_trabajando">Actualmente no estoy trabajando en informática</option>
-                      </select>
-                      <label class="control-label" for="tipo_relacion_laboral">¿Cuál es tu situación laboral?</label>
-                    </div>
-                  </div>
-
-                  <!-- 1) Situación (Para No Trabajando) -->
-                  <div class="row" id="grupo_situacion" style="display:none;">
-                    <div class="form-group custom-floating-label col-md-12">
-                      <textarea class="form-control" id="situacion_descripcion" name="situacion_descripcion" rows="3"
-                        placeholder=" "></textarea>
-                      <label class="control-label" for="situacion_descripcion">Describí tu situación</label>
-                    </div>
-                  </div>
-
-                  <!-- 2) Lugar de Trabajo (Para Dependencia / Independiente excepto freelance) -->
-                  <div class="row" id="grupo_lugar_trabajo" style="display:none;">
-                    <div class="form-group required custom-floating-label col-md-12">
-                      <select class="custom-select" id="lugar_trabajo" name="lugar_trabajo">
-                        <option selected="" value="">Seleccione...</option>
-                        <option value="sede" id="opt_sede">Trabajo en la sede de la empresa</option>
-                        <option value="casa">Trabajo desde mi casa (home office)</option>
-                        <option value="hibrido">Trabajo en modalidad híbrida</option>
-                      </select>
-                      <label class="control-label" for="lugar_trabajo">¿Desde dónde trabajás habitualmente?</label>
-                      <div class="field-help">Desde dónde realizás tu trabajo habitualmente.</div>
-                    </div>
-                  </div>
-
-                  <!-- 3) Dirección empresa (Aparece si Lugar = Sede / Híbrido) -->
-                  <div id="grupo_direccion" style="display:none;">
-                    <div class="row">
-                      <div class="form-group col-md-6 custom-floating-label">
-                        <input class="form-control" id="empleador_direccion" name="empleador_direccion"
-                          placeholder="Calle, Número, Piso, Oficina" type="text" />
-                        <label class="control-label" for="empleador_direccion">Dirección de la empresa</label>
-                      </div>
-                      <div class="form-group col-md-3 custom-floating-label">
-                        <input class="form-control" id="empleador_localidad" name="empleador_localidad" placeholder=" "
-                          type="text" />
-                        <label class="control-label" for="empleador_localidad">Localidad</label>
-                      </div>
-                      <div class="form-group col-md-3 custom-floating-label">
-                        <input class="form-control" id="empleador_cp" name="empleador_cp" placeholder=" " type="text" />
-                        <label class="control-label" for="empleador_cp">Código postal</label>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="form-group custom-floating-label col-md-12">
-                        <select class="custom-select" id="empleador_provincia" name="empleador_provincia">
-                          <option selected="" value="">Seleccione...</option>
-                          <option value="02">Ciudad Autónoma de Buenos Aires</option>
-                          <option value="06">Buenos Aires</option>
-                          <option value="10">Catamarca</option>
-                          <option value="14">Córdoba</option>
-                          <option value="18">Corrientes</option>
-                          <option value="22">Chaco</option>
-                          <option value="26">Chubut</option>
-                          <option value="30">Entre Ríos</option>
-                          <option value="34">Formosa</option>
-                          <option value="38">Jujuy</option>
-                          <option value="42">La Pampa</option>
-                          <option value="46">La Rioja</option>
-                          <option value="50">Mendoza</option>
-                          <option value="54">Misiones</option>
-                          <option value="58">Neuquén</option>
-                          <option value="62">Río Negro</option>
-                          <option value="66">Salta</option>
-                          <option value="70">San Juan</option>
-                          <option value="74">San Luis</option>
-                          <option value="78">Santa Cruz</option>
-                          <option value="82">Santa Fe</option>
-                          <option value="86">Santiago del Estero</option>
-                          <option value="90">Tucumán</option>
-                          <option value="94">Tierra del Fuego, Antártida e Islas del Atlántico Sur</option>
-                        </select>
-                        <label class="control-label" for="empleador_provincia">Provincia</label>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- 4) Home Office días (Sólo Híbrido) -->
-                  <div class="row" id="grupo_home_office" style="display:none;">
-                    <div class="form-group col-md-12">
-                      <label class="control-label" for="home_office_dias">¿Cuántos días hacés de <i>home
-                          office</i>?</label>
-                      <div class="cuota-slider-container mt-1 mb-3">
-                        <input id="home_office_dias" name="home_office_dias" max="5" min="0" step="1"
-                          style="width: 100%;" type="range" value="0" />
-                        <div class="d-flex justify-content-between text-muted small mt-1">
-                          <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                      <!-- 0) Rol Profesional - siempre visible y requerido -->
+                      <div class="row">
+                        <div class="form-group required col-md-12 custom-floating-label">
+                          <input class="form-control" id="rol_profesional" name="rol_profesional" placeholder=" "
+                            type="text" required="" />
+                          <label class="control-label" for="rol_profesional">¿Cuál es tu rol?</label>
+                          <div class="field-help">Por ejemplo: QA Jr., Desarrollador/a Backend, Soporte técnico, etc.
+                          </div>
                         </div>
                       </div>
-                      <div class="field-help">Indicá cuántos días por semana solés trabajar desde casa.</div>
-                    </div>
-                  </div>
 
-                  <!-- 5) Recibo de Sueldo (Sólo Dependencia con recibo) -->
-                  <div class="row" id="grupo_recibo" style="display:none;">
-                    <div class="form-group col-md-12">
-                      <label class="control-label" for="doc_recibo">Último recibo de sueldo</label>
-                      <div class="upload-zone" id="zone_recibo">
-                        <div class="upload-icon">📄</div>
-                        <div class="upload-text">
-                          <div class="upload-label">Arrastrá o clic — Último recibo de sueldo</div>
-                          <div class="upload-hint">Cargá el recibo más reciente que tengas.<br>Lo usamos únicamente para
-                            validar tu vínculo laboral.<br>Es confidencial y no se informa a tu empleador.</div>
-                          <div class="upload-filename" id="fname_recibo" style="display:none;"></div>
+                      <div class="row">
+                        <div class="form-group required custom-floating-label col-md-12">
+                          <select class="custom-select" id="tipo_relacion_laboral" name="tipo_relacion_laboral"
+                            required="">
+                            <option selected="" value="">Seleccione...</option>
+                            <option value="dependencia_con_recibo">Trabajo en relación de dependencia (con recibo de
+                              sueldo)</option>
+                            <option value="facturo_regular">Facturo de manera regular a una empresa para la que trabajo
+                              de forma continua</option>
+                            <option value="tercerizado_consultora">Trabajo tercerizado a través de una consultora o
+                              agencia</option>
+                            <option value="socio_cooperativa">Soy socio/a de una cooperativa de trabajo</option>
+                            <option value="independiente">Trabajo de forma independiente (múltiples clientes /
+                              proyectos)</option>
+                            <option value="no_trabajando">Actualmente no estoy trabajando en informática</option>
+                          </select>
+                          <label class="control-label" for="tipo_relacion_laboral">¿Cuál es tu situación
+                            laboral?</label>
                         </div>
-                        <input id="doc_recibo" name="doc_recibo" type="file" accept="image/*,.pdf" />
+                      </div>
+
+                      <!-- 1) Situación (Para No Trabajando) -->
+                      <div class="row" id="grupo_situacion" style="display:none;">
+                        <div class="form-group custom-floating-label col-md-12">
+                          <textarea class="form-control" id="situacion_descripcion" name="situacion_descripcion"
+                            rows="3" placeholder=" "></textarea>
+                          <label class="control-label" for="situacion_descripcion">Describí tu situación</label>
+                        </div>
+                      </div>
+
+                      <!-- 2) Lugar de Trabajo (Para Dependencia / Independiente excepto freelance) -->
+                      <div class="row" id="grupo_lugar_trabajo" style="display:none;">
+                        <div class="form-group required custom-floating-label col-md-12">
+                          <select class="custom-select" id="lugar_trabajo" name="lugar_trabajo">
+                            <option selected="" value="">Seleccione...</option>
+                            <option value="sede" id="opt_sede">Trabajo en la sede de la empresa</option>
+                            <option value="casa">Trabajo desde mi casa (home office)</option>
+                            <option value="hibrido">Trabajo en modalidad híbrida</option>
+                          </select>
+                          <label class="control-label" for="lugar_trabajo">¿Desde dónde trabajás habitualmente?</label>
+                          <div class="field-help">Desde dónde realizás tu trabajo habitualmente.</div>
+                        </div>
+                      </div>
+
+                      <!-- 3) Dirección empresa (Aparece si Lugar = Sede / Híbrido) -->
+                      <div id="grupo_direccion" style="display:none;">
+                        <div class="row">
+                          <div class="form-group col-md-6 custom-floating-label">
+                            <input class="form-control" id="empleador_direccion" name="empleador_direccion"
+                              placeholder="Calle, Número, Piso, Oficina" type="text" />
+                            <label class="control-label" for="empleador_direccion">Dirección de la empresa</label>
+                          </div>
+                          <div class="form-group col-md-3 custom-floating-label">
+                            <input class="form-control" id="empleador_localidad" name="empleador_localidad"
+                              placeholder=" " type="text" />
+                            <label class="control-label" for="empleador_localidad">Localidad</label>
+                          </div>
+                          <div class="form-group col-md-3 custom-floating-label">
+                            <input class="form-control" id="empleador_cp" name="empleador_cp" placeholder=" "
+                              type="text" />
+                            <label class="control-label" for="empleador_cp">Código postal</label>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="form-group custom-floating-label col-md-12">
+                            <select class="custom-select" id="empleador_provincia" name="empleador_provincia">
+                              <option selected="" value="">Seleccione...</option>
+                              <option value="02">Ciudad Autónoma de Buenos Aires</option>
+                              <option value="06">Buenos Aires</option>
+                              <option value="10">Catamarca</option>
+                              <option value="14">Córdoba</option>
+                              <option value="18">Corrientes</option>
+                              <option value="22">Chaco</option>
+                              <option value="26">Chubut</option>
+                              <option value="30">Entre Ríos</option>
+                              <option value="34">Formosa</option>
+                              <option value="38">Jujuy</option>
+                              <option value="42">La Pampa</option>
+                              <option value="46">La Rioja</option>
+                              <option value="50">Mendoza</option>
+                              <option value="54">Misiones</option>
+                              <option value="58">Neuquén</option>
+                              <option value="62">Río Negro</option>
+                              <option value="66">Salta</option>
+                              <option value="70">San Juan</option>
+                              <option value="74">San Luis</option>
+                              <option value="78">Santa Cruz</option>
+                              <option value="82">Santa Fe</option>
+                              <option value="86">Santiago del Estero</option>
+                              <option value="90">Tucumán</option>
+                              <option value="94">Tierra del Fuego, Antártida e Islas del Atlántico Sur</option>
+                            </select>
+                            <label class="control-label" for="empleador_provincia">Provincia</label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- 4) Home Office días (Sólo Híbrido) -->
+                      <div class="row" id="grupo_home_office" style="display:none;">
+                        <div class="form-group col-md-12">
+                          <label class="control-label" for="home_office_dias">¿Cuántos días hacés de <i>home
+                              office</i>?</label>
+                          <div class="cuota-slider-container mt-1 mb-3">
+                            <input id="home_office_dias" name="home_office_dias" max="5" min="0" step="1"
+                              style="width: 100%;" type="range" value="0" />
+                            <div class="d-flex justify-content-between text-muted small mt-1">
+                              <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                            </div>
+                          </div>
+                          <div class="field-help">Indicá cuántos días por semana solés trabajar desde casa.</div>
+                        </div>
+                      </div>
+
+                      <!-- 5) Recibo de Sueldo (Sólo Dependencia con recibo) -->
+                      <div class="row" id="grupo_recibo" style="display:none;">
+                        <div class="form-group col-md-12">
+                          <label class="control-label" for="doc_recibo">Último recibo de sueldo</label>
+                          <div class="upload-zone" id="zone_recibo">
+                            <div class="upload-icon">📄</div>
+                            <div class="upload-text">
+                              <div class="upload-label">Arrastrá o clic — Último recibo de sueldo</div>
+                              <div class="upload-hint">Cargá el recibo más reciente que tengas.<br>Lo usamos únicamente
+                                para validar tu vínculo laboral.<br>Es confidencial y no se informa a tu empleador.
+                              </div>
+                              <div class="upload-filename" id="fname_recibo" style="display:none;"></div>
+                            </div>
+                            <input id="doc_recibo" name="doc_recibo" type="file" accept="image/*,.pdf" />
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- 6) Observaciones laborales (Dependencia / Independiente) -->
+                      <div class="row" id="grupo_observaciones" style="display:none;">
+                        <div class="form-group col-md-12">
+                          <label class="control-label" for="observaciones_laborales">Información adicional
+                            (opcional)</label>
+                          <textarea class="form-control" id="observaciones_laborales" name="observaciones_laborales"
+                            rows="2"
+                            placeholder="Por ejemplo: facturo para una empresa del exterior, voy una vez al mes a la oficina, etc."></textarea>
+                        </div>
+                      </div>
+
+                      <div class="d-flex justify-content-between mt-3"><button class="btn btn-secondary btn-prev"
+                          type="button">Anterior</button><button class="btn btn-primary btn-next"
+                          type="button">Siguiente</button>
                       </div>
                     </div>
-                  </div>
-
-                  <!-- 6) Observaciones laborales (Dependencia / Independiente) -->
-                  <div class="row" id="grupo_observaciones" style="display:none;">
-                    <div class="form-group col-md-12">
-                      <label class="control-label" for="observaciones_laborales">Información adicional
-                        (opcional)</label>
-                      <textarea class="form-control" id="observaciones_laborales" name="observaciones_laborales"
-                        rows="2"
-                        placeholder="Por ejemplo: facturo para una empresa del exterior, voy una vez al mes a la oficina, etc."></textarea>
-                    </div>
-                  </div>
-
-                  <div class="d-flex justify-content-between mt-3"><button class="btn btn-secondary btn-prev"
-                      type="button">Anterior</button><button class="btn btn-primary btn-next"
-                      type="button">Siguiente</button>
                   </div>
                 </div>
               </div>
