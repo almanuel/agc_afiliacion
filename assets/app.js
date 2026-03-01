@@ -138,23 +138,56 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // --- 6. Lógica Condicional del Paso 2 ---
+
+    // Dynamic label/placeholder map per TRL
+    var obsConfig = {
+        dependencia_con_recibo: {
+            label: 'Información adicional (opcional)',
+            placeholder: 'Por ejemplo: tengo dos empleadores, trabajo part-time, etc.',
+            required: false
+        },
+        facturo_regular: {
+            label: 'Información adicional (opcional)',
+            placeholder: 'Por ejemplo: facturo en dólares, trabajo para una empresa del exterior, etc.',
+            required: false
+        },
+        tercerizado_consultora: {
+            label: 'Información adicional (opcional)',
+            placeholder: 'Por ejemplo: estoy asignado a un cliente hace más de un año, trabajo en las oficinas del cliente, etc.',
+            required: false
+        },
+        socio_cooperativa: {
+            label: 'Información adicional (opcional)',
+            placeholder: 'Por ejemplo: nombre de la cooperativa, tipo de proyectos, etc.',
+            required: false
+        },
+        independiente: {
+            label: 'Información adicional (opcional)',
+            placeholder: 'Por ejemplo: tengo 3 clientes fijos, trabajo principalmente para el sector salud, etc.',
+            required: false
+        },
+        no_trabajando: {
+            label: 'Describí tu situación',
+            placeholder: 'Contanos brevemente tu situación: estás buscando trabajo, en pausa, estudiando...',
+            required: true
+        }
+    };
+
     function updateStep2Logic() {
         var trl = document.getElementById('tipo_relacion_laboral').value;
         var lugar = document.getElementById('lugar_trabajo').value;
 
-        var grpSituacion = document.getElementById('grupo_situacion');
         var grpLugar = document.getElementById('grupo_lugar_trabajo');
         var grpDir = document.getElementById('grupo_direccion');
         var grpRecibo = document.getElementById('grupo_recibo');
         var grpHomeOffice = document.getElementById('grupo_home_office');
         var grpObs = document.getElementById('grupo_observaciones');
         var selLugar = document.getElementById('lugar_trabajo');
+        var lblObs = document.getElementById('lbl_observaciones');
+        var txtObs = document.getElementById('observaciones_laborales');
+        var fgObs = document.getElementById('fg_observaciones');
 
         // Reset all conditional groups
-        grpSituacion.style.display = 'none';
-        grpSituacion.querySelector('textarea').removeAttribute('required');
-        grpSituacion.querySelector('textarea').classList.remove('is-invalid', 'is-valid');
-
         grpLugar.style.display = 'none';
         selLugar.removeAttribute('required');
         selLugar.classList.remove('is-invalid', 'is-valid');
@@ -175,6 +208,21 @@ document.addEventListener('DOMContentLoaded', function () {
         grpRecibo.querySelector('input').classList.remove('is-invalid', 'is-valid');
 
         grpObs.style.display = 'none';
+        txtObs.removeAttribute('required');
+        txtObs.classList.remove('is-invalid', 'is-valid');
+        fgObs.classList.remove('required');
+
+        // Apply dynamic config for the textarea
+        var cfg = obsConfig[trl];
+        if (cfg) {
+            lblObs.textContent = cfg.label;
+            txtObs.placeholder = cfg.placeholder;
+            if (cfg.required) {
+                txtObs.setAttribute('required', 'required');
+                fgObs.classList.add('required');
+            }
+            grpObs.style.display = 'flex';
+        }
 
         if (trl === 'dependencia_con_recibo') {
             grpLugar.style.display = 'flex'; selLugar.setAttribute('required', 'required');
@@ -182,21 +230,17 @@ document.addEventListener('DOMContentLoaded', function () {
             if (grpReciboFG) grpReciboFG.classList.add('required');
             grpRecibo.querySelector('input').setAttribute('required', 'required');
             grpRecibo.querySelector('input').required = true;
-            grpObs.style.display = 'flex';
 
-            // Dirección shown for sede or hibrido
             if (lugar === 'sede' || lugar === 'hibrido') {
                 grpDir.style.display = 'block';
                 grpDir.querySelectorAll('input, select').forEach(function (el) { el.setAttribute('required', 'required'); });
             }
-            // Home office slider only for hibrido
             if (lugar === 'hibrido') {
                 grpHomeOffice.style.display = 'flex';
             }
 
         } else if (trl === 'facturo_regular' || trl === 'tercerizado_consultora' || trl === 'socio_cooperativa') {
             grpLugar.style.display = 'flex'; selLugar.setAttribute('required', 'required');
-            grpObs.style.display = 'flex';
 
             if (lugar === 'sede' || lugar === 'hibrido') {
                 grpDir.style.display = 'block';
@@ -207,12 +251,9 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
         } else if (trl === 'independiente') {
-            // Profesional independiente: lugar oculto, solo observaciones
-            grpObs.style.display = 'flex';
-
+            // Solo observaciones, sin lugar de trabajo
         } else if (trl === 'no_trabajando') {
-            grpSituacion.style.display = 'flex';
-            grpSituacion.querySelector('textarea').setAttribute('required', 'required');
+            // Solo textarea (ya configurado arriba como required)
         }
     }
 
@@ -313,6 +354,27 @@ document.addEventListener('DOMContentLoaded', function () {
             formEl.addEventListener('input', updateSubmitStatus);
             formEl.addEventListener('change', updateSubmitStatus);
         }
+    }
+    // --- 8. Cuota flexible checkbox ---
+    var chkFlexible = document.getElementById('chk_cuota_flexible');
+    if (chkFlexible) {
+        chkFlexible.addEventListener('change', function () {
+            var step3 = document.getElementById('step-3');
+            var step3SliderContainer = step3 ? step3.querySelector('.cuota-slider-container') : null;
+            var cuotaInputGroup = cuotaEl2 ? cuotaEl2.closest('.input-group') : null;
+            var cuotaHelpEl = document.getElementById('cuota_help');
+            var disabled = this.checked;
+
+            if (cuotaSlider) cuotaSlider.disabled = disabled;
+            if (cuotaEl2) { cuotaEl2.disabled = disabled; }
+            if (disabled) { if (cuotaEl2) cuotaEl2.removeAttribute('required'); }
+            else { if (cuotaEl2) cuotaEl2.setAttribute('required', 'required'); }
+
+            var opacity = disabled ? '0.45' : '';
+            if (step3SliderContainer) step3SliderContainer.style.opacity = opacity;
+            if (cuotaInputGroup) cuotaInputGroup.style.opacity = opacity;
+            if (cuotaHelpEl) cuotaHelpEl.style.opacity = opacity;
+        });
     }
 
 });

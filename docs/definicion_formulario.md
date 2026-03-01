@@ -2,7 +2,7 @@
 
 **Proyecto:** Sumate / Formulario de Afiliación  
 **Organización:** Asociación Gremial de Computación (AGC)  
-**Versión del documento:** 1.1 — 27/02/2026  
+**Versión del documento:** 1.2 — 01/03/2026  
 **Idioma del formulario:** Español (Argentina)
 
 ---
@@ -11,16 +11,18 @@
 
 Formulario de afiliación en tres pasos. Permite que un trabajador o trabajadora informático/a solicite su afiliación al gremio AGC. El proceso es confidencial.
 
+**URL del formulario:** https://sumate.informaticos.ar/
+
 **Intro visible al usuario:**
 > "Es simple, confidencial y se completa en 3 pasos.  
 > Tu afiliación es privada: tu empleador no será informado."
 
 **Indicadores de progreso (wizard):**
 - Paso 1: Personal
-- Paso 2: Laboral
+- Paso 2: Profesional
 - Paso 3: Gremial
 
-**Endpoint de envío:** `POST /public/forms/afiliados`  
+**Endpoint de envío:** `A DEFINIR`  
 **Protección:** Google reCAPTCHA v3 (token enviado en campo `token_captcha`)
 
 ---
@@ -34,10 +36,13 @@ Formulario de afiliación en tres pasos. Permite que un trabajador o trabajadora
 | 1 | Apellido(s) | `apellidos` | text | ✅ | Validación HTML5 | — |
 | 2 | Nombre(s) | `nombres` | text | ✅ | Validación HTML5 | — |
 | 3 | CUIL | `cuil` | text | ✅ | Máscara IMask: `00-00000000-0` | "Formato: 20-12345678-9" |
-| 4 | Email | `email` | email | ✅ | `type="email"` | — |
-| 5 | Teléfono | `telefono` | tel | ✅ | Texto libre | — |
-| 6 | DNI (frente) | `doc_dni_frente` | file | ✅ | Imagen o PDF · Máx. 5 MB | "Usamos esta documentación solo para validar identidad. Es confidencial." |
-| 7 | DNI (dorso) | `doc_dni_dorso` | file | ✅ | Imagen o PDF · Máx. 5 MB | "Usamos esta documentación solo para validar identidad. Es confidencial." |
+| 4 | Teléfono | `telefono` | tel | ✅ | Texto libre | — |
+| 5 | Email | `email` | email | ✅ | `type="email"` | — |
+| 6 | DNI (frente) | `doc_dni_frente` | file | ✅ | Imagen o PDF · Máx. 5 MB | Ver microcopy abajo |
+| 7 | DNI (dorso) | `doc_dni_dorso` | file | ✅ | Imagen o PDF · Máx. 5 MB | Ver microcopy abajo |
+
+**Microcopy previo a los campos de DNI:**
+> "Para proteger a los afiliados y afiliadas de afiliaciones falsas, necesitamos confirmar que sos vos. Esta documentación es confidencial y se usa únicamente para validar tu identidad."
 
 ### Checkbox condicional
 
@@ -78,7 +83,7 @@ Visible solo si el checkbox está marcado.
 |-------|---------------|
 | *(vacío)* | Seleccione... |
 | `dependencia_con_recibo` | Trabajo en relación de dependencia (con recibo de sueldo) |
-| `facturo_regular` | Facturo de manera regular a una empresa para la que trabajo de forma continua |
+| `facturo_regular` | Facturo a una empresa de forma continua (contractor) |
 | `tercerizado_consultora` | Trabajo tercerizado a través de una consultora o agencia |
 | `socio_cooperativa` | Soy socio/a de una cooperativa de trabajo |
 | `independiente` | Trabajo de forma independiente (múltiples clientes / proyectos) |
@@ -94,16 +99,26 @@ Visible solo si el checkbox está marcado.
 |-------|---------------|
 | *(vacío)* | Seleccione... |
 | `sede` | Trabajo en la sede de la empresa |
-| `hibrido` | Trabajo en modalidad híbrida |
 | `casa` | Trabajo desde mi casa (home office) |
+| `hibrido` | Trabajo en modalidad híbrida |
 
 **Ayuda:** "Desde dónde realizás tu trabajo habitualmente."
 
 ---
 
+### Grupo: Días de home office
+
+Visible cuando `lugar_trabajo` == `hibrido`.
+
+**Label:** "¿Cuántos días hacés de home office?"  
+**Tipo:** select o radio buttons (opciones: 0, 1, 2, 3, 4, 5)  
+**Ayuda:** "Indicá cuántos días por semana solés trabajar desde casa."
+
+---
+
 ### Grupo: Dirección de la empresa
 
-Visible cuando corresponde (Sede / Híbrido).
+Visible cuando `lugar_trabajo` == `sede` o `hibrido`.
 
 | Label | ID | Requerido |
 |-------|----|-----------|
@@ -118,7 +133,7 @@ Visible cuando corresponde (Sede / Híbrido).
 
 **Label:** "Último recibo de sueldo"
 
-**Ayuda actualizada:**
+**Ayuda:**
 > "Cargá el recibo más reciente que tengas.  
 > Lo usamos únicamente para validar tu vínculo laboral.  
 > Es confidencial y no se informa a tu empleador."
@@ -127,15 +142,27 @@ Visible cuando corresponde (Sede / Híbrido).
 
 ### Grupo: Información adicional
 
-**Label:** "Información adicional (opcional)"  
-**Placeholder:** "Por ejemplo: facturo para una empresa del exterior, voy una vez al mes a la oficina, etc."
+**Label dinámico según `tipo_relacion_laboral`:**
 
----
+| Value | Label | Requerido |
+|-------|-------|-----------|
+| `dependencia_con_recibo` | "Información adicional (opcional)" | ❌ |
+| `facturo_regular` | "Información adicional (opcional)" | ❌ |
+| `tercerizado_consultora` | "Información adicional (opcional)" | ❌ |
+| `socio_cooperativa` | "Información adicional (opcional)" | ❌ |
+| `independiente` | "Información adicional (opcional)" | ❌ |
+| `no_trabajando` | "Describí tu situación" | ✅ |
 
-### Grupo: Situación actual
+**Placeholder dinámico según `tipo_relacion_laboral`:**
 
-**Label:** "Describí tu situación"  
-(Requerido cuando `tipo_relacion_laboral` == `no_trabajando`)
+| Value | Placeholder |
+|-------|-------------|
+| `dependencia_con_recibo` | "Por ejemplo: tengo dos empleadores, trabajo part-time, etc." |
+| `facturo_regular` | "Por ejemplo: facturo en dólares, trabajo para una empresa del exterior, etc." |
+| `tercerizado_consultora` | "Por ejemplo: estoy asignado a un cliente hace más de un año, trabajo en las oficinas del cliente, etc." |
+| `socio_cooperativa` | "Por ejemplo: nombre de la cooperativa, tipo de proyectos, etc." |
+| `independiente` | "Por ejemplo: tengo 3 clientes fijos, trabajo principalmente para el sector salud, etc." |
+| `no_trabajando` | "Contanos brevemente tu situación: estás buscando trabajo, en pausa, estudiando..." |
 
 ---
 
@@ -145,7 +172,7 @@ Visible cuando corresponde (Sede / Híbrido).
 
 **Título:** "Elegí tu aporte mensual"
 
-**Texto colapsable actualizado:**
+**Texto colapsable:**
 > **Cuota sindical, ¿cómo funciona?**  
 > El aporte sindical es la forma en que sostenemos el gremio entre todos. Con esa contribución financiamos los servicios, beneficios y la estructura que defiende a los trabajadores y trabajadoras informáticas.  
 > En muchos gremios equivale al 3% del salario bruto. En AGC elegimos un modelo flexible: podés definir un monto mensual fijo según tus posibilidades.  
@@ -159,6 +186,12 @@ Visible cuando corresponde (Sede / Híbrido).
 
 **Referencia dinámica:**
 > "Como referencia: equivale aproximadamente al 3% de un salario bruto de $X."
+
+**Opción de cuota flexible:**  
+Checkbox visible debajo del slider:
+> "Por ahora no puedo aportar ese monto — quiero que me contacten."
+
+Al marcarse, el slider y el campo de monto se deshabilitan (visualmente atenuados) y se registra la solicitud de contacto.
 
 ---
 
@@ -180,8 +213,18 @@ Visible cuando corresponde (Sede / Híbrido).
 **Texto del checkbox:**  
 "Acepto mis derechos y obligaciones como afiliado/a de la Asociación Gremial de Computación."
 
+> ⚠️ El texto debe incluir un link al documento de términos y condiciones (en elaboración).
+
 ---
 
 ### Navegación final
 
 **Botón final:** "**Confirmar afiliación**"
+
+---
+
+## Pendientes
+
+- Documento de términos y condiciones (link desde el checkbox)
+- Pantalla / mensaje de confirmación post-envío (qué esperar, en cuánto tiempo los contactan)
+- Implementar analytics con eventos por paso para medir abandono

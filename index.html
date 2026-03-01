@@ -97,6 +97,13 @@
                         </div>
                       </div>
                       <div class="row">
+                        <div class="col-md-12 mb-2">
+                          <p class="text-muted small mb-0">Para proteger a los afiliados y afiliadas de afiliaciones
+                            falsas, necesitamos confirmar que sos vos. Esta documentación es confidencial y se usa
+                            únicamente para validar tu identidad.</p>
+                        </div>
+                      </div>
+                      <div class="row">
                         <div class="form-group required col-md-12">
                           <label class="control-label" for="doc_dni_frente">DNI (frente)</label>
                           <div class="upload-zone" id="zone_dni_frente">
@@ -205,7 +212,7 @@
                 <div class="card-body">
                   <div class="row justify-content-center">
                     <div class="col-12 col-md-9">
-                      <h4 class="card-title text-primary mb-4">Datos laborales</h4>
+                      <h4 class="card-title text-primary mb-4">Datos profesionales</h4>
 
                       <!-- 0) Rol Profesional - siempre visible y requerido -->
                       <div class="row">
@@ -225,8 +232,8 @@
                             <option selected="" value="">Seleccione...</option>
                             <option value="dependencia_con_recibo">Trabajo en relación de dependencia (con recibo de
                               sueldo)</option>
-                            <option value="facturo_regular">Facturo de manera regular a una empresa para la que trabajo
-                              de forma continua</option>
+                            <option value="facturo_regular">Facturo a una empresa de forma continua (contractor)
+                            </option>
                             <option value="tercerizado_consultora">Trabajo tercerizado a través de una consultora o
                               agencia</option>
                             <option value="socio_cooperativa">Soy socio/a de una cooperativa de trabajo</option>
@@ -239,14 +246,7 @@
                         </div>
                       </div>
 
-                      <!-- 1) Situación (Para No Trabajando) -->
-                      <div class="row" id="grupo_situacion" style="display:none;">
-                        <div class="form-group custom-floating-label col-md-12">
-                          <textarea class="form-control" id="situacion_descripcion" name="situacion_descripcion"
-                            rows="3" placeholder=" "></textarea>
-                          <label class="control-label" for="situacion_descripcion">Describí tu situación</label>
-                        </div>
-                      </div>
+
 
                       <!-- 2) Lugar de Trabajo (Para Dependencia / Independiente excepto freelance) -->
                       <div class="row" id="grupo_lugar_trabajo" style="display:none;">
@@ -349,14 +349,14 @@
                         </div>
                       </div>
 
-                      <!-- 6) Observaciones laborales (Dependencia / Independiente) -->
+                      <!-- 6) Información adicional / Situación (dinámico según TRL) -->
                       <div class="row" id="grupo_observaciones" style="display:none;">
-                        <div class="form-group col-md-12">
-                          <label class="control-label" for="observaciones_laborales">Información adicional
+                        <div class="form-group col-md-12" id="fg_observaciones">
+                          <label class="control-label" id="lbl_observaciones" for="observaciones_laborales">Información
+                            adicional
                             (opcional)</label>
                           <textarea class="form-control" id="observaciones_laborales" name="observaciones_laborales"
-                            rows="2"
-                            placeholder="Por ejemplo: facturo para una empresa del exterior, voy una vez al mes a la oficina, etc."></textarea>
+                            rows="2" placeholder=""></textarea>
                         </div>
                       </div>
 
@@ -420,6 +420,13 @@
                         </div>
                         <small class="form-text text-muted" id="cuota_help">Como referencia: equivale aproximadamente al
                           3% de un salario bruto de $700.000.</small>
+                        <div class="form-check mt-3">
+                          <input class="form-check-input" type="checkbox" id="chk_cuota_flexible"
+                            name="chk_cuota_flexible" value="1">
+                          <label class="form-check-label" for="chk_cuota_flexible">
+                            Por ahora no puedo aportar ese monto — quiero que me contacten.
+                          </label>
+                        </div>
                       </div>
 
                       <script src="https://unpkg.com/imask"></script>
