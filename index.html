@@ -212,7 +212,7 @@
                 <div class="card-body">
                   <div class="row justify-content-center">
                     <div class="col-12 col-md-9">
-                      <h4 class="card-title text-primary mb-4">Datos profesionales</h4>
+                      <h4 class="card-title text-primary mb-4">Datos laborales</h4>
 
                       <!-- 0) Rol Profesional - siempre visible y requerido -->
                       <div class="row">
@@ -229,26 +229,44 @@
                         <div class="form-group required custom-floating-label col-md-12">
                           <select class="custom-select" id="tipo_relacion_laboral" name="tipo_relacion_laboral"
                             required="">
-                            <option selected="" value="">Seleccione...</option>
+                            <option selected="" value="">¿Cuál es tu situación laboral?</option>
                             <option value="dependencia_con_recibo">Trabajo en relación de dependencia (con recibo de
                               sueldo)</option>
-                            <option value="facturo_regular">Facturo a una empresa de forma continua (contractor)
-                            </option>
                             <option value="tercerizado_consultora">Trabajo tercerizado a través de una consultora o
                               agencia</option>
+                            <option value="facturo_regular">Facturo a una empresa de forma continua
+                              (&ldquo;contractor&rdquo;)
+                            </option>
                             <option value="socio_cooperativa">Soy socio/a de una cooperativa de trabajo</option>
                             <option value="independiente">Trabajo de forma independiente (múltiples clientes /
                               proyectos)</option>
-                            <option value="no_trabajando">Actualmente no estoy trabajando en informática</option>
+                            <option value="no_trabajando">Actualmente no estoy trabajando</option>
                           </select>
-                          <label class="control-label" for="tipo_relacion_laboral">¿Cuál es tu situación
-                            laboral?</label>
+                          <label class="control-label" for="tipo_relacion_laboral">Sobre tu trabajo informático</label>
                         </div>
                       </div>
 
 
 
-                      <!-- 2) Lugar de Trabajo (Para Dependencia / Independiente excepto freelance) -->
+                      <!-- 3) Recibo de Sueldo (Aparece para dependencia_con_recibo y tercerizado_consultora) -->
+                      <div class="row" id="grupo_recibo" style="display:none;">
+                        <div class="form-group col-md-12">
+                          <label class="control-label" for="doc_recibo">Último recibo de sueldo</label>
+                          <div class="upload-zone" id="zone_recibo">
+                            <div class="upload-icon">📄</div>
+                            <div class="upload-text">
+                              <div class="upload-label">Arrastrá o clic — Último recibo de sueldo</div>
+                              <div class="upload-hint">Cargá el recibo más reciente que tengas.<br>Lo usamos únicamente
+                                para validar tu vínculo laboral.<br>Es confidencial y no se informa a tu empleador.
+                              </div>
+                              <div class="upload-filename" id="fname_recibo" style="display:none;"></div>
+                            </div>
+                            <input id="doc_recibo" name="doc_recibo" type="file" accept="image/*,.pdf" />
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- 2) Lugar de Trabajo (Aparece después de subir el recibo, o directamente para otros TRL) -->
                       <div class="row" id="grupo_lugar_trabajo" style="display:none;">
                         <div class="form-group required custom-floating-label col-md-12">
                           <select class="custom-select" id="lugar_trabajo" name="lugar_trabajo">
@@ -262,7 +280,7 @@
                         </div>
                       </div>
 
-                      <!-- 3) Dirección empresa (Aparece si Lugar = Sede / Híbrido) -->
+                      <!-- 4) Dirección empresa (Aparece si Lugar = Sede / Híbrido) -->
                       <div id="grupo_direccion" style="display:none;">
                         <div class="row">
                           <div class="form-group col-md-6 custom-floating-label">
@@ -315,7 +333,7 @@
                         </div>
                       </div>
 
-                      <!-- 4) Home Office días (Sólo Híbrido) -->
+                      <!-- 5) Home Office días (Sólo Híbrido) -->
                       <div class="row" id="grupo_home_office" style="display:none;">
                         <div class="form-group col-md-12">
                           <label class="control-label" for="home_office_dias">¿Cuántos días hacés de <i>home
@@ -328,24 +346,6 @@
                             </div>
                           </div>
                           <div class="field-help">Indicá cuántos días por semana solés trabajar desde casa.</div>
-                        </div>
-                      </div>
-
-                      <!-- 5) Recibo de Sueldo (Sólo Dependencia con recibo) -->
-                      <div class="row" id="grupo_recibo" style="display:none;">
-                        <div class="form-group col-md-12">
-                          <label class="control-label" for="doc_recibo">Último recibo de sueldo</label>
-                          <div class="upload-zone" id="zone_recibo">
-                            <div class="upload-icon">📄</div>
-                            <div class="upload-text">
-                              <div class="upload-label">Arrastrá o clic — Último recibo de sueldo</div>
-                              <div class="upload-hint">Cargá el recibo más reciente que tengas.<br>Lo usamos únicamente
-                                para validar tu vínculo laboral.<br>Es confidencial y no se informa a tu empleador.
-                              </div>
-                              <div class="upload-filename" id="fname_recibo" style="display:none;"></div>
-                            </div>
-                            <input id="doc_recibo" name="doc_recibo" type="file" accept="image/*,.pdf" />
-                          </div>
                         </div>
                       </div>
 
@@ -418,8 +418,8 @@
                           <input class="form-control" id="cuota_sindical" min="25000" name="cuota_sindical"
                             placeholder=" " required="" type="text" value="25000" />
                         </div>
-                        <small class="form-text text-muted" id="cuota_help">Como referencia: equivale aproximadamente al
-                          3% de un salario bruto de $700.000.</small>
+                        <small class="form-text text-muted" id="cuota_help">Como referencia: este monto de cuota
+                          sindical equivaldría al 3% de un salario bruto de $ ...</small>
                         <div class="form-check mt-3">
                           <input class="form-check-input" type="checkbox" id="chk_cuota_flexible"
                             name="chk_cuota_flexible" value="1">
