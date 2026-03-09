@@ -87,7 +87,7 @@ Visible solo si el checkbox está marcado.
 | `tercerizado_consultora` | Trabajo tercerizado a través de una consultora o agencia |
 | `socio_cooperativa` | Soy socio/a de una cooperativa de trabajo |
 | `independiente` | Trabajo de forma independiente (múltiples clientes / proyectos) |
-| `no_trabajando` | Actualmente no estoy trabajando en informática |
+| `no_trabajando` | Actualmente no estoy trabajando |
 
 ### Grupo: Lugar de trabajo
 

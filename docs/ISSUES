@@ -1,0 +1,15 @@
+ISSUES
+
+. When field "Dirección de la empresa" is required, label doesn't have a red asterisk "*"
+
+. Re order relacion_laboral options to: dependencia_con_recibo,  tercerizado_consultora, facturo_regular, socio_cooperativa, independiente, no_trabajando
+
+. Option facturo_regular text: "Facturo a una empresa de forma continua ("contractor")", i.e. add "" to contractor word. 
+
+. Field cuota, edit help text: "Como referencia: este monto de cuota sindical equivaldría al 3% de un salario bruto de ... "
+
+. Field "Último recibo de sueldo", when shown, it has to be before empleador_direccion fields. 
+
+. Field "Último recibo de sueldo" also needs to be shown when option relacion_laboral is "tercerizado_consultora". 
+
+. 

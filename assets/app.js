@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateCuotaHelp(source) {
         var v = parseFloat(cuotaMask ? cuotaMask.unmaskedValue : (cuotaEl2 ? cuotaEl2.value : 0)) || 0;
         if (cuotaHelp) {
-            cuotaHelp.textContent = 'Como referencia: equivale aproximadamente al 3% de un salario bruto de $ ' +
+            cuotaHelp.textContent = 'Como referencia: este monto de cuota sindical equivaldría al 3% de un salario bruto de $ ' +
                 Math.round(v * 100 / 3).toLocaleString('es-AR');
         }
         if (source !== 'slider' && cuotaSlider && v >= 25000 && v <= 100000) {
@@ -186,7 +186,6 @@ document.addEventListener('DOMContentLoaded', function () {
         var lblObs = document.getElementById('lbl_observaciones');
         var txtObs = document.getElementById('observaciones_laborales');
         var fgObs = document.getElementById('fg_observaciones');
-
         // Reset all conditional groups
         grpLugar.style.display = 'none';
         selLugar.removeAttribute('required');
@@ -197,6 +196,7 @@ document.addEventListener('DOMContentLoaded', function () {
             el.removeAttribute('required');
             el.classList.remove('is-invalid', 'is-valid');
         });
+        grpDir.querySelectorAll('.form-group').forEach(function (fg) { fg.classList.remove('required'); });
 
         grpHomeOffice.style.display = 'none';
 
@@ -224,7 +224,14 @@ document.addEventListener('DOMContentLoaded', function () {
             grpObs.style.display = 'flex';
         }
 
-        if (trl === 'dependencia_con_recibo') {
+        // Helper: show employer address fields (and mark form-groups as required)
+        function showDirRequired() {
+            grpDir.style.display = 'block';
+            grpDir.querySelectorAll('.form-group').forEach(function (fg) { fg.classList.add('required'); });
+            grpDir.querySelectorAll('input, select').forEach(function (el) { el.setAttribute('required', 'required'); });
+        }
+
+        if (trl === 'dependencia_con_recibo' || trl === 'tercerizado_consultora') {
             grpLugar.style.display = 'flex'; selLugar.setAttribute('required', 'required');
             grpRecibo.style.display = 'flex';
             if (grpReciboFG) grpReciboFG.classList.add('required');
@@ -232,19 +239,17 @@ document.addEventListener('DOMContentLoaded', function () {
             grpRecibo.querySelector('input').required = true;
 
             if (lugar === 'sede' || lugar === 'hibrido') {
-                grpDir.style.display = 'block';
-                grpDir.querySelectorAll('input, select').forEach(function (el) { el.setAttribute('required', 'required'); });
+                showDirRequired();
             }
             if (lugar === 'hibrido') {
                 grpHomeOffice.style.display = 'flex';
             }
 
-        } else if (trl === 'facturo_regular' || trl === 'tercerizado_consultora' || trl === 'socio_cooperativa') {
+        } else if (trl === 'facturo_regular' || trl === 'socio_cooperativa') {
             grpLugar.style.display = 'flex'; selLugar.setAttribute('required', 'required');
 
             if (lugar === 'sede' || lugar === 'hibrido') {
-                grpDir.style.display = 'block';
-                grpDir.querySelectorAll('input, select').forEach(function (el) { el.setAttribute('required', 'required'); });
+                showDirRequired();
             }
             if (lugar === 'hibrido') {
                 grpHomeOffice.style.display = 'flex';

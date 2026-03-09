@@ -82,8 +82,8 @@ $("#btn_submit").on("click", async () => {
     const img_recibo = document.querySelector('#doc_recibo');
     let trl = document.querySelector('#tipo_relacion_laboral').value;
 
-    // Solo requerir el recibo si la relación laboral seleccionada es "dependencia_con_recibo"
-    if (trl === 'dependencia_con_recibo') {
+    // Requerir el recibo para dependencia_con_recibo y tercerizado_consultora
+    if (trl === 'dependencia_con_recibo' || trl === 'tercerizado_consultora') {
       if (img_recibo.files.length < 1) {
         $(img_recibo).addClass("is-invalid");
         return
