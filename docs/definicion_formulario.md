@@ -194,7 +194,8 @@ Visible cuando `lugar_trabajo` == `sede` o `hibrido`.
 
 **Valor inicial del slider:** $40.000 (mínimo × 1,6)  
 **Rango:** $25.000 (mínimo) — $100.000+  
-**Paso:** $1.000
+**Paso:** $1.000  
+**Campo de texto:** Prefijo `$ ARS` y sufijo `/mes`
 
 **Texto colapsable:**
 > **Cuota sindical, ¿cómo funciona?**  
