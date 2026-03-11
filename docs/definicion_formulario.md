@@ -236,7 +236,7 @@ Al marcarse, el slider y el campo de monto se deshabilitan (visualmente atenuado
 ### Términos y condiciones
 
 **Texto del checkbox:**  
-"Acepto mis derechos y obligaciones como afiliado/a de la Asociación Gremial de Computación."
+"Acepto mis [derechos y obligaciones](derechos-y-obligaciones) como afiliado/a de la Asociación Gremial de Computación."
 
 > ⚠️ El texto debe incluir un link al documento de términos y condiciones (en elaboración).
 
@@ -248,8 +248,37 @@ Al marcarse, el slider y el campo de monto se deshabilitan (visualmente atenuado
 
 ---
 
+## Pantalla de confirmación (`confirmacion.html`)
+
+Página que se muestra al afiliado/a tras enviar el formulario correctamente.
+
+**URL:** `confirmacion.html`  
+**Archivo:** `confirmacion.html`
+
+### Jumbotron
+
+| Elemento | Texto |
+|----------|-------|
+| Título | Recibimos tu solicitud ¡Bienvenido/a a AGC! |
+| Subtítulo | Revisaremos tu documentación y confirmaremos tu afiliación en un plazo máximo de 48 horas. Te enviamos un mail con esta información. |
+
+### Sección "Cómo sigue el proceso"
+
+**Título de sección:** "Cómo sigue el proceso"
+
+| # | Estado | Título | Descripción |
+|---|--------|--------|-------------|
+| 1 | ✅ Completado | Solicitud enviada | Recibimos tus datos y documentación. |
+| 2 | Pendiente | Validación — hasta 48 hs | Nuestro equipo revisa tu documentación y confirma tu afiliación. Te avisamos por mail. |
+| 3 | Pendiente | Afiliación confirmada | Accedés a todos los beneficios y servicios del gremio. Te vamos a enviar un mail con información sobre cómo podes abonar tu cuota. |
+
+### Link al pie
+
+> "Conocé más sobre AGC en [informaticos.ar](https://informaticos.ar)"
+
+---
+
 ## Pendientes
 
-- Documento de términos y condiciones (link desde el checkbox)
-- Pantalla / mensaje de confirmación post-envío (qué esperar, en cuánto tiempo los contactan)
+- Documento de términos y condiciones
 - Implementar analytics con eventos por paso para medir abandono
