@@ -83,7 +83,6 @@ Visible solo si el checkbox está marcado.
 |-------|---------------|
 | *(vacío — placeholder)* | Modalidad de trabajo... |
 | `dependencia_con_recibo` | Trabajo en relación de dependencia (con recibo de sueldo) |
-| `tercerizado_consultora` | Trabajo tercerizado a través de una consultora o agencia |
 | `dependencia_no_registrada` | Trabajo en relación de dependencia no registrada (informal) |
 | `facturo_regular` | Facturo a una empresa de forma continua (“contractor”) |
 | `socio_cooperativa` | Soy socio/a de una cooperativa de trabajo |
@@ -170,7 +169,6 @@ Visible cuando `lugar_trabajo` == `sede` o `hibrido`.
 |-------|-------|-----------|
 | `dependencia_con_recibo` | "Información adicional (opcional)" | ❌ |
 | `facturo_regular` | "Información adicional (opcional)" | ❌ |
-| `tercerizado_consultora` | "Información adicional (opcional)" | ❌ |
 | `socio_cooperativa` | "Información adicional (opcional)" | ❌ |
 | `independiente` | "Información adicional (opcional)" | ❌ |
 | `no_trabajando` | "Describí tu situación" | ✅ |
@@ -179,9 +177,8 @@ Visible cuando `lugar_trabajo` == `sede` o `hibrido`.
 
 | Value | Placeholder |
 |-------|-------------|
-| `dependencia_con_recibo` | "Por ejemplo: tengo dos empleadores, trabajo part-time, etc." |
+| `dependencia_con_recibo` | "Por ejemplo: trabajo part-time, estoy tercerizado, tengo dos empleadores, etc." |
 | `facturo_regular` | "Por ejemplo: Sobre tu facturación y/o estructura de tus 'clientes'" |
-| `tercerizado_consultora` | "Por ejemplo: estoy asignado a un cliente hace más de un año, trabajo en las oficinas del cliente, etc." |
 | `dependencia_no_registrada` | "Contanos dónde trabajás y tu situación, nos pondremos en contacto." |
 | `socio_cooperativa` | "Por ejemplo: nombre de la cooperativa, tipo de proyectos, etc." |
 | `independiente` | "Por ejemplo: tengo 3 clientes fijos, trabajo principalmente para el sector salud, etc." |

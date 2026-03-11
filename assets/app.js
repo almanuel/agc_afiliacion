@@ -143,17 +143,12 @@ document.addEventListener('DOMContentLoaded', function () {
     var obsConfig = {
         dependencia_con_recibo: {
             label: 'Información adicional (opcional)',
-            placeholder: 'Por ejemplo: tengo dos empleadores, trabajo part-time, etc.',
+            placeholder: 'Por ejemplo: trabajo part-time, estoy tercerizado, tengo dos empleadores, etc.',
             required: false
         },
         facturo_regular: {
             label: 'Información adicional (opcional)',
             placeholder: "Por ejemplo: Sobre tu facturación y/o estructura de tus 'clientes'",
-            required: false
-        },
-        tercerizado_consultora: {
-            label: 'Información adicional (opcional)',
-            placeholder: 'Por ejemplo: estoy asignado a un cliente hace más de un año, trabajo en las oficinas del cliente, etc.',
             required: false
         },
         dependencia_no_registrada: {
@@ -243,14 +238,14 @@ document.addEventListener('DOMContentLoaded', function () {
             grpDir.querySelectorAll('input, select').forEach(function (el) { el.setAttribute('required', 'required'); });
         }
 
-        if (trl === 'dependencia_con_recibo' || trl === 'tercerizado_consultora') {
+        if (trl === 'dependencia_con_recibo') {
             grpLugar.style.display = 'flex'; selLugar.setAttribute('required', 'required');
             grpRecibo.style.display = 'flex';
             if (grpReciboFG) grpReciboFG.classList.add('required');
             grpRecibo.querySelector('input').setAttribute('required', 'required');
             grpRecibo.querySelector('input').required = true;
 
-            if (trl === 'dependencia_con_recibo' && grpActividad) {
+            if (grpActividad) {
                 grpActividad.style.display = 'flex';
                 if (selActividad) selActividad.setAttribute('required', 'required');
             }
