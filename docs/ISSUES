@@ -1,6 +1,8 @@
 ISSUES
 
-[X] Check "Por ahora..." text is "Por ahora no puedo aportar el ni el mínimo — quiero que me contacten." when checked, the value of cuota does not have to be reset.
+[ ] Field tipo_relacion_laboral, add new option, after option "tercerizado". Text: "Trabajo en relación de dependencia no registrada (informal)". When selected, informacion adicional placeholder value becomes: "Contanos dónde trabajás y tu situación, nos pondremos en contacto." 
+
+[x] Check "Por ahora..." text is "Por ahora no puedo aportar el ni el mínimo — quiero que me contacten." when checked, the value of cuota does not have to be reset.
 
 [x] Cuota field default value is minimum * 1.6
 

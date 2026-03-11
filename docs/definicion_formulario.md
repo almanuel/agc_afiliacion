@@ -84,6 +84,7 @@ Visible solo si el checkbox está marcado.
 | *(vacío — placeholder)* | Modalidad de trabajo... |
 | `dependencia_con_recibo` | Trabajo en relación de dependencia (con recibo de sueldo) |
 | `tercerizado_consultora` | Trabajo tercerizado a través de una consultora o agencia |
+| `dependencia_no_registrada` | Trabajo en relación de dependencia no registrada (informal) |
 | `facturo_regular` | Facturo a una empresa de forma continua (“contractor”) |
 | `socio_cooperativa` | Soy socio/a de una cooperativa de trabajo |
 | `independiente` | Trabajo de forma independiente (múltiples clientes / proyectos) |
@@ -181,6 +182,7 @@ Visible cuando `lugar_trabajo` == `sede` o `hibrido`.
 | `dependencia_con_recibo` | "Por ejemplo: tengo dos empleadores, trabajo part-time, etc." |
 | `facturo_regular` | "Por ejemplo: Sobre tu facturación y/o estructura de tus 'clientes'" |
 | `tercerizado_consultora` | "Por ejemplo: estoy asignado a un cliente hace más de un año, trabajo en las oficinas del cliente, etc." |
+| `dependencia_no_registrada` | "Contanos dónde trabajás y tu situación, nos pondremos en contacto." |
 | `socio_cooperativa` | "Por ejemplo: nombre de la cooperativa, tipo de proyectos, etc." |
 | `independiente` | "Por ejemplo: tengo 3 clientes fijos, trabajo principalmente para el sector salud, etc." |
 | `no_trabajando` | "Contanos brevemente tu situación: estás buscando trabajo, en pausa, estudiando..." |
@@ -216,7 +218,7 @@ Visible cuando `lugar_trabajo` == `sede` o `hibrido`.
 Checkbox visible debajo del slider:
 > "Por ahora no puedo aportar ni el mínimo — quiero que me contacten."
 
-Al marcarse, el valor de cuota se resetea al mínimo ($25.000), el slider y el campo de monto se deshabilitan (visualmente atenuados) y se registra la solicitud de contacto.
+Al marcarse, el slider y el campo de monto se deshabilitan (visualmente atenuados) y se registra la solicitud de contacto. El valor de cuota elegido se mantiene sin cambios.
 
 ---
 
