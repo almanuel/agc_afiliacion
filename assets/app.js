@@ -156,6 +156,11 @@ document.addEventListener('DOMContentLoaded', function () {
             placeholder: 'Por ejemplo: estoy asignado a un cliente hace más de un año, trabajo en las oficinas del cliente, etc.',
             required: false
         },
+        dependencia_no_registrada: {
+            label: 'Información adicional (opcional)',
+            placeholder: 'Contanos dónde trabajás y tu situación, nos pondremos en contacto.',
+            required: false
+        },
         socio_cooperativa: {
             label: 'Información adicional (opcional)',
             placeholder: 'Por ejemplo: nombre de la cooperativa, tipo de proyectos, etc.',
@@ -386,22 +391,6 @@ document.addEventListener('DOMContentLoaded', function () {
             var cuotaInputGroup = cuotaEl2 ? cuotaEl2.closest('.input-group') : null;
             var cuotaHelpEl = document.getElementById('cuota_help');
             var disabled = this.checked;
-
-            if (disabled) {
-                // Reset cuota to default value
-                var defaultValue = cuotaSlider ? cuotaSlider.min : '25000';
-                if (cuotaSlider) {
-                    cuotaSlider.value = defaultValue;
-                    updateSliderFill(cuotaSlider);
-                }
-                if (cuotaMask) {
-                    cuotaMask.unmaskedValue = defaultValue.toString();
-                    cuotaMask.updateValue();
-                } else if (cuotaEl2) {
-                    cuotaEl2.value = defaultValue;
-                }
-                updateCuotaHelp('reset');
-            }
 
             if (cuotaSlider) cuotaSlider.disabled = disabled;
             if (cuotaEl2) { cuotaEl2.disabled = disabled; }
