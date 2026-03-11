@@ -155,15 +155,15 @@
                               placeholder="Calle, Número, Piso, Oficina" type="text" />
                             <label class="control-label" for="personal_direccion">Dirección</label>
                           </div>
-                          <div class="form-group required col-md-3 custom-floating-label">
+                          <div class="form-group required col-md-3 custom-floating-label label-sm">
                             <input class="form-control" id="personal_localidad" name="personal_localidad"
                               placeholder=" " type="text" />
                             <label class="control-label" for="personal_localidad">Localidad</label>
                           </div>
-                          <div class="form-group required col-md-3 custom-floating-label">
+                          <div class="form-group required col-md-3 custom-floating-label label-sm">
                             <input class="form-control" id="personal_cp" name="personal_cp" placeholder=" "
                               type="text" />
-                            <label class="control-label" for="personal_cp">Código postal</label>
+                            <label class="control-label" for="personal_cp">Cód. Postal</label>
                           </div>
                         </div>
                         <div class="row">
@@ -219,8 +219,8 @@
                         <div class="form-group required col-md-12 custom-floating-label">
                           <input class="form-control" id="rol_profesional" name="rol_profesional" placeholder=" "
                             type="text" required="" />
-                          <label class="control-label" for="rol_profesional">¿Cuál es tu rol?</label>
-                          <div class="field-help">Por ejemplo: QA Jr., Desarrollador/a Backend, Soporte técnico, etc.
+                          <label class="control-label" for="rol_profesional">¿Cuál es tu rol profesional?</label>
+                          <div class="field-help">Por ejemplo: Programador/a Jr, Soporte técnico, QA Sr, etc.
                           </div>
                         </div>
                       </div>
@@ -229,7 +229,7 @@
                         <div class="form-group required custom-floating-label col-md-12">
                           <select class="custom-select" id="tipo_relacion_laboral" name="tipo_relacion_laboral"
                             required="">
-                            <option selected="" value="">¿Cuál es tu situación laboral?</option>
+                            <option selected="" value="">Modalidad de trabajo...</option>
                             <option value="dependencia_con_recibo">Trabajo en relación de dependencia (con recibo de
                               sueldo)</option>
                             <option value="tercerizado_consultora">Trabajo tercerizado a través de una consultora o
@@ -242,11 +242,23 @@
                               proyectos)</option>
                             <option value="no_trabajando">Actualmente no estoy trabajando</option>
                           </select>
-                          <label class="control-label" for="tipo_relacion_laboral">Sobre tu trabajo informático</label>
+                          <label class="control-label" for="tipo_relacion_laboral">¿Cuál es tu situación laboral?</label>
                         </div>
                       </div>
 
 
+                      <!-- Actividad del empleador (dependencia_con_recibo y facturo_regular) -->
+                      <div class="row" id="grupo_empleador_actividad" style="display:none;">
+                        <div class="form-group required custom-floating-label col-md-12">
+                          <select class="custom-select" id="empleador_actividad" name="empleador_actividad">
+                            <option selected="" value="">Actividad principal...</option>
+                            <option value="informatica">Informática (software, hardware y servicios informáticos)</option>
+                            <option value="otro_sector">Otro sector</option>
+                            <option value="no_se">No lo sé</option>
+                          </select>
+                          <label class="control-label" for="empleador_actividad">¿Cuál es la actividad de tu empleador?</label>
+                        </div>
+                      </div>
 
                       <!-- 3) Recibo de Sueldo (Aparece para dependencia_con_recibo y tercerizado_consultora) -->
                       <div class="row" id="grupo_recibo" style="display:none;">
@@ -272,7 +284,7 @@
                           <select class="custom-select" id="lugar_trabajo" name="lugar_trabajo">
                             <option selected="" value="">Seleccione...</option>
                             <option value="sede" id="opt_sede">Trabajo en la sede de la empresa</option>
-                            <option value="casa">Trabajo desde mi casa (home office)</option>
+                            <option value="casa">Trabajo remoto (desde casa, fuera de una sede del empleador)</option>
                             <option value="hibrido">Trabajo en modalidad híbrida</option>
                           </select>
                           <label class="control-label" for="lugar_trabajo">¿Desde dónde trabajás habitualmente?</label>
@@ -288,15 +300,15 @@
                               placeholder="Calle, Número, Piso, Oficina" type="text" />
                             <label class="control-label" for="empleador_direccion">Dirección de la empresa</label>
                           </div>
-                          <div class="form-group col-md-3 custom-floating-label">
+                          <div class="form-group col-md-3 custom-floating-label label-sm">
                             <input class="form-control" id="empleador_localidad" name="empleador_localidad"
                               placeholder=" " type="text" />
                             <label class="control-label" for="empleador_localidad">Localidad</label>
                           </div>
-                          <div class="form-group col-md-3 custom-floating-label">
+                          <div class="form-group col-md-3 custom-floating-label label-sm">
                             <input class="form-control" id="empleador_cp" name="empleador_cp" placeholder=" "
                               type="text" />
-                            <label class="control-label" for="empleador_cp">Código postal</label>
+                            <label class="control-label" for="empleador_cp">Cód. Postal</label>
                           </div>
                         </div>
                         <div class="row">
@@ -405,7 +417,7 @@
                       <div class="form-group required mb-4">
                         <div class="cuota-slider-container mb-3 mt-1">
                           <input id="cuota_slider" max="100000" min="25000" step="1000" style="width: 100%;"
-                            type="range" value="25000" />
+                            type="range" value="40000" />
                           <div class="d-flex justify-content-between text-muted small mt-1">
                             <span>$ 25.000 (Mínimo)</span>
                             <span>$ 100.000+</span>
@@ -416,7 +428,7 @@
                             <span class="input-group-text">$</span>
                           </div>
                           <input class="form-control" id="cuota_sindical" min="25000" name="cuota_sindical"
-                            placeholder=" " required="" type="text" value="25000" />
+                            placeholder=" " required="" type="text" value="40000" />
                         </div>
                         <small class="form-text text-muted" id="cuota_help">Como referencia: este monto de cuota
                           sindical equivaldría al 3% de un salario bruto de $ ...</small>
@@ -424,7 +436,7 @@
                           <input class="form-check-input" type="checkbox" id="chk_cuota_flexible"
                             name="chk_cuota_flexible" value="1">
                           <label class="form-check-label" for="chk_cuota_flexible">
-                            Por ahora no puedo aportar ese monto — quiero que me contacten.
+                            Por ahora no puedo aportar ni el mínimo — quiero que me contacten.
                           </label>
                         </div>
                       </div>
