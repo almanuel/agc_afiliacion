@@ -211,7 +211,7 @@ Al marcarse, el slider y el campo de monto se deshabilitan (visualmente atenuado
 ### Términos y condiciones
 
 **Texto del checkbox:**  
-"Acepto mis derechos y obligaciones como afiliado/a de la Asociación Gremial de Computación."
+"Acepto mis [derechos y obligaciones](derechos-y-obligaciones) como afiliado/a de la Asociación Gremial de Computación."
 
 > ⚠️ El texto debe incluir un link al documento de términos y condiciones (en elaboración).
 
@@ -255,5 +255,5 @@ Página que se muestra al afiliado/a tras enviar el formulario correctamente.
 
 ## Pendientes
 
-- Documento de términos y condiciones (link desde el checkbox)
+- Documento de términos y condiciones
 - Implementar analytics con eventos por paso para medir abandono
