@@ -1,5 +1,7 @@
 ISSUES
 
+[x] On field cuota, add a prefix "$ ARS" or similar in order to show currency is pesos argentinos. Also add some kind of suffix like "/mes" to show it's paid monthly. 
+
 [x] Field tipo_relacion_laboral, remove option "tercerizado_consultora". In the form and whole logic. In case user selects relacion de dependencia, set informacion adicional placeholder value to: "Por ejemplo: trabajo part-time, estoy tercerizado, tengo dos empleadores, etc."
 
 [X] Field tipo_relacion_laboral, add new option, after option "tercerizado". Text: "Trabajo en relación de dependencia no registrada (informal)". When selected, informacion adicional placeholder value becomes: "Contanos dónde trabajás y tu situación, nos pondremos en contacto." 
