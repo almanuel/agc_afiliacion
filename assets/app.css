@@ -384,3 +384,113 @@ select.custom-select {
 body {
   font-family: 'Inter', sans-serif !important;
 }
+
+/* ── confirmacion.html ──────────────────────────────────────────── */
+
+/* Disable hover effect on the steps card */
+.confirmacion .card:hover {
+  box-shadow: none !important;
+  cursor: default;
+}
+
+.check-circle {
+  width: 64px;
+  height: 64px;
+  background-color: #198754;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+
+.check-circle i {
+  color: white;
+  font-size: 1.75rem;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.pasos-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pasos-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.pasos-list li:last-child {
+  border-bottom: none;
+}
+
+.paso-num {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #e9ecef;
+  color: #6c757d;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.paso-num.done {
+  background-color: #d1e7dd;
+  color: #198754;
+}
+
+.paso-titulo {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 2px;
+}
+
+.paso-desc {
+  font-size: 0.85rem;
+  color: #6c757d;
+  margin: 0;
+}
+
+/* Inline-style replacements */
+.jumbotron-title {
+  font-size: 2rem;
+}
+
+.jumbotron-desc {
+  font-size: 1.05rem;
+  opacity: 0.9;
+}
+
+.pasos-heading {
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+}
+
+.paso-check-icon {
+  font-size: 11px;
+}
+
+.confirmacion-site-link {
+  font-size: 0.9rem;
+}
