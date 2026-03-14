@@ -42,7 +42,7 @@ Formulario de afiliación en tres pasos. Permite que un trabajador o trabajadora
 | 7 | DNI (dorso) | `doc_dni_dorso` | file | ✅ | Imagen o PDF · Máx. 5 MB | Ver microcopy abajo |
 
 **Microcopy previo a los campos de DNI:**
-> "Para proteger a los afiliados y afiliadas de afiliaciones falsas, necesitamos confirmar que sos vos. Esta documentación es confidencial y se usa únicamente para validar tu identidad."
+> "Para proteger a los afiliados y afiliadas de afiliaciones falsas, necesitamos confirmar que sos vos. Esta documentación es confidencial y se usa para validar tu identidad."
 
 ### Checkbox condicional
 
@@ -156,7 +156,7 @@ Visible cuando `lugar_trabajo` == `sede` o `hibrido`.
 
 **Ayuda:**
 > "Cargá el recibo más reciente que tengas.  
-> Lo usamos únicamente para validar tu vínculo laboral.  
+> Lo usamos para validar tu vínculo laboral.  
 > Es confidencial y no se informa a tu empleador."
 
 ---
@@ -197,9 +197,8 @@ Visible cuando `lugar_trabajo` == `sede` o `hibrido`.
 **Paso:** $1.000  
 **Campo de texto:** Prefijo `$ ARS` y sufijo `/mes`
 
-**Texto colapsable:**
-> **Cuota sindical, ¿cómo funciona?**  
-> El aporte sindical es la forma en que sostenemos el gremio entre todos. Con esa contribución financiamos los servicios, beneficios y la estructura que defiende a los trabajadores y trabajadoras informáticas.  
+**Texto expansible (read-more):**
+> ¿Cómo funciona? La cuota sindical es la forma en que sostenemos el gremio entre todos. Con esa contribución financiamos los servicios, beneficios y la estructura que defiende a los trabajadores y trabajadoras informáticas.  
 > En muchos gremios equivale al 3% del salario bruto. En AGC elegimos un modelo flexible: podés definir un monto mensual fijo según tus posibilidades.  
 > Tu aporte permite sostener:  
 > • Asesoramiento legal y gremial  

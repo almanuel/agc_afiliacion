@@ -47,7 +47,7 @@
 **Cambios importantes en Paso 1:**
 
 - Los campos de **domicilio personal** ahora son **condicionales**: solo aparecen si el usuario marca el checkbox `chk_domicilio_diferente` ("Vivo en un domicilio diferente al que figura en mi DNI").
-- Se agregó un **microcopy** antes de los campos de DNI: _"Para proteger a los afiliados y afiliadas de afiliaciones falsas, necesitamos confirmar que sos vos. Esta documentación es confidencial y se usa únicamente para validar tu identidad."_
+- Se agregó un **microcopy** antes de los campos de DNI: _"Para proteger a los afiliados y afiliadas de afiliaciones falsas, necesitamos confirmar que sos vos. Esta documentación es confidencial y se usa para validar tu identidad."_
 
 ---
 
