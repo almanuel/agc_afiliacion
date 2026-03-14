@@ -119,8 +119,9 @@ Visible y requerido solo cuando `tipo_relacion_laboral` == `dependencia_con_reci
 | Value | Texto visible |
 |-------|---------------|
 | *(vacío)* | Seleccione... |
-| `sede` | Trabajo en la sede de la empresa |
-| `casa` | Trabajo remoto (desde casa, fuera de una sede del empleador) |
+| `sede` | Trabajo en sede de la empresa |
+| `casa` | Trabajo desde casa (remoto) |
+| `calle` | Hago trabajo de calle |
 | `hibrido` | Trabajo en modalidad híbrida |
 
 **Ayuda:** "Desde dónde realizás tu trabajo habitualmente."
