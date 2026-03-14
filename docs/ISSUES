@@ -25,7 +25,7 @@ ISSUES
 
 [x] field rol profesional help should be: "Por ejemplo: Programador/a Jr, Soporte técnico, QA Sr, etc."
 
-[x] field lugar_trabajo, option casa text should be: "Trabajo remoto (desde casa), fuera de una sede del empleador)"
+[x] field lugar_trabajo, option casa text should be: "Trabajo desde casa (remoto)"
 
 [x] When field "Dirección de la empresa" is required, label doesn't have a red asterisk "*"
 
