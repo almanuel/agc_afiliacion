@@ -1,0 +1,40 @@
+ISSUES
+
+[x] On field cuota, add a prefix "$ ARS" or similar in order to show currency is pesos argentinos. Also add some kind of suffix like "/mes" to show it's paid monthly. 
+
+[x] Field tipo_relacion_laboral, remove option "tercerizado_consultora". In the form and whole logic. In case user selects relacion de dependencia, set informacion adicional placeholder value to: "Por ejemplo: trabajo part-time, estoy tercerizado, tengo dos empleadores, etc."
+
+[X] Field tipo_relacion_laboral, add new option, after option "tercerizado". Text: "Trabajo en relación de dependencia no registrada (informal)". When selected, informacion adicional placeholder value becomes: "Contanos dónde trabajás y tu situación, nos pondremos en contacto." 
+
+[x] Check "Por ahora..." text is "Por ahora no puedo aportar el ni el mínimo — quiero que me contacten." when checked, the value of cuota does not have to be reset.
+
+[x] Cuota field default value is minimum * 1.6
+
+[x] Add a new field empleador_actividad after relacion_laboral.
+    . Type Selector 
+    . Label "¿Cuál es la actividad de tu empleador?" 
+    . Placeholder "Actividad principal..."  
+    . Options: Informática (software, hardware y servicios informáticos), Otro sector, No lo sé.
+    . Shown and required only when relacion_laboral is relacion de dependencia, facturo_regular.  
+
+[x] field tipo de relacion laboral, label is: "¿Cuál es tu situación laboral?", placeholder label: "Modalidad de trabajo..."
+
+[x] field rol_profesional, label is ¿Cuál es tu rol profesional?
+
+[x] field informacion adicional, placeholder in case of facturo_regular should be: "Por ejemplo: Sobre tu facturación y/o estructura de tus 'clientes'"
+
+[x] field rol profesional help should be: "Por ejemplo: Programador/a Jr, Soporte técnico, QA Sr, etc."
+
+[x] field lugar_trabajo, option casa text should be: "Trabajo remoto (desde casa), fuera de una sede del empleador)"
+
+[x] When field "Dirección de la empresa" is required, label doesn't have a red asterisk "*"
+
+[x] Re order relacion_laboral options to: dependencia_con_recibo,  tercerizado_consultora, facturo_regular, socio_cooperativa, independiente, no_trabajando
+
+[x] Option facturo_regular text: "Facturo a una empresa de forma continua ("contractor")", i.e. add "" to contractor word. 
+
+[x] Field cuota, edit help text: "Como referencia: este monto de cuota sindical equivaldría al 3% de un salario bruto de ... "
+
+[x] Field "Último recibo de sueldo", when shown, it has to be before "donde trabajas habitualmente" field. 
+
+[x] Field "Último recibo de sueldo" also needs to be shown when option relacion_laboral is "tercerizado_consultora". 
