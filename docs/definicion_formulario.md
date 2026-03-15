@@ -2,7 +2,7 @@
 
 **Proyecto:** Sumate / Formulario de Afiliación  
 **Organización:** Asociación Gremial de Computación (AGC)  
-**Versión del documento:** 1.2 — 01/03/2026  
+**Versión del documento:** 1.4 — 10/03/2026  
 **Idioma del formulario:** Español (Argentina)
 
 ---
@@ -42,7 +42,7 @@ Formulario de afiliación en tres pasos. Permite que un trabajador o trabajadora
 | 7 | DNI (dorso) | `doc_dni_dorso` | file | ✅ | Imagen o PDF · Máx. 5 MB | Ver microcopy abajo |
 
 **Microcopy previo a los campos de DNI:**
-> "Para proteger a los afiliados y afiliadas de afiliaciones falsas, necesitamos confirmar que sos vos. Esta documentación es confidencial y se usa únicamente para validar tu identidad."
+> "Para proteger a los afiliados y afiliadas de afiliaciones falsas, necesitamos confirmar que sos vos. Esta documentación es confidencial y se usa para validar tu identidad."
 
 ### Checkbox condicional
 
@@ -69,7 +69,7 @@ Visible solo si el checkbox está marcado.
 
 | Label | ID | Tipo | Requerido | Ayuda |
 |-------|----|------|-----------|-------|
-| ¿Cuál es tu rol? | `rol_profesional` | text | ✅ | "Por ejemplo: QA Jr., Desarrollador/a Backend, Soporte técnico, etc." |
+| ¿Cuál es tu rol profesional? | `rol_profesional` | text | ✅ | "Por ejemplo: Programador/a Jr, Soporte técnico, QA Sr, etc." |
 
 ### Situación laboral
 
@@ -81,13 +81,34 @@ Visible solo si el checkbox está marcado.
 
 | Value | Texto visible |
 |-------|---------------|
-| *(vacío)* | Seleccione... |
+| *(vacío — placeholder)* | Modalidad de trabajo... |
 | `dependencia_con_recibo` | Trabajo en relación de dependencia (con recibo de sueldo) |
-| `facturo_regular` | Facturo a una empresa de forma continua (contractor) |
-| `tercerizado_consultora` | Trabajo tercerizado a través de una consultora o agencia |
+| `dependencia_no_registrada` | Trabajo en relación de dependencia no registrada (informal) |
+| `facturo_regular` | Facturo a una empresa de forma continua (“contractor”) |
 | `socio_cooperativa` | Soy socio/a de una cooperativa de trabajo |
 | `independiente` | Trabajo de forma independiente (múltiples clientes / proyectos) |
-| `no_trabajando` | Actualmente no estoy trabajando en informática |
+| `no_trabajando` | Actualmente no estoy trabajando |
+
+---
+
+### Campo: Actividad del empleador
+
+Visible y requerido solo cuando `tipo_relacion_laboral` == `dependencia_con_recibo` o `facturo_regular`.
+
+| Label | ID | Tipo | Requerido |
+|-------|----|------|-----------|
+| ¿Cuál es la actividad de tu empleador? | `empleador_actividad` | select | ✅ (condicional) |
+
+**Placeholder option:** "Actividad principal..."
+
+**Opciones:**
+
+| Value | Texto visible |
+|-------|---------------|
+| *(vacío — placeholder)* | Actividad principal... |
+| `informatica` | Informática (software, hardware y servicios informáticos) |
+| `otro_sector` | Otro sector |
+| `no_se` | No lo sé |
 
 ### Grupo: Lugar de trabajo
 
@@ -98,8 +119,9 @@ Visible solo si el checkbox está marcado.
 | Value | Texto visible |
 |-------|---------------|
 | *(vacío)* | Seleccione... |
-| `sede` | Trabajo en la sede de la empresa |
-| `casa` | Trabajo desde mi casa (home office) |
+| `sede` | Trabajo en sede de la empresa |
+| `casa` | Trabajo desde casa (remoto) |
+| `calle` | Hago trabajo de calle |
 | `hibrido` | Trabajo en modalidad híbrida |
 
 **Ayuda:** "Desde dónde realizás tu trabajo habitualmente."
@@ -135,7 +157,7 @@ Visible cuando `lugar_trabajo` == `sede` o `hibrido`.
 
 **Ayuda:**
 > "Cargá el recibo más reciente que tengas.  
-> Lo usamos únicamente para validar tu vínculo laboral.  
+> Lo usamos para validar tu vínculo laboral.  
 > Es confidencial y no se informa a tu empleador."
 
 ---
@@ -148,7 +170,6 @@ Visible cuando `lugar_trabajo` == `sede` o `hibrido`.
 |-------|-------|-----------|
 | `dependencia_con_recibo` | "Información adicional (opcional)" | ❌ |
 | `facturo_regular` | "Información adicional (opcional)" | ❌ |
-| `tercerizado_consultora` | "Información adicional (opcional)" | ❌ |
 | `socio_cooperativa` | "Información adicional (opcional)" | ❌ |
 | `independiente` | "Información adicional (opcional)" | ❌ |
 | `no_trabajando` | "Describí tu situación" | ✅ |
@@ -157,9 +178,9 @@ Visible cuando `lugar_trabajo` == `sede` o `hibrido`.
 
 | Value | Placeholder |
 |-------|-------------|
-| `dependencia_con_recibo` | "Por ejemplo: tengo dos empleadores, trabajo part-time, etc." |
-| `facturo_regular` | "Por ejemplo: facturo en dólares, trabajo para una empresa del exterior, etc." |
-| `tercerizado_consultora` | "Por ejemplo: estoy asignado a un cliente hace más de un año, trabajo en las oficinas del cliente, etc." |
+| `dependencia_con_recibo` | "Por ejemplo: trabajo part-time, estoy tercerizado, tengo dos empleadores, etc." |
+| `facturo_regular` | "Por ejemplo: Sobre tu facturación y/o estructura de tus 'clientes'" |
+| `dependencia_no_registrada` | "Contanos dónde trabajás y tu situación, nos pondremos en contacto." |
 | `socio_cooperativa` | "Por ejemplo: nombre de la cooperativa, tipo de proyectos, etc." |
 | `independiente` | "Por ejemplo: tengo 3 clientes fijos, trabajo principalmente para el sector salud, etc." |
 | `no_trabajando` | "Contanos brevemente tu situación: estás buscando trabajo, en pausa, estudiando..." |
@@ -172,9 +193,13 @@ Visible cuando `lugar_trabajo` == `sede` o `hibrido`.
 
 **Título:** "Elegí tu aporte mensual"
 
-**Texto colapsable:**
-> **Cuota sindical, ¿cómo funciona?**  
-> El aporte sindical es la forma en que sostenemos el gremio entre todos. Con esa contribución financiamos los servicios, beneficios y la estructura que defiende a los trabajadores y trabajadoras informáticas.  
+**Valor inicial del slider:** $40.000 (mínimo × 1,6)  
+**Rango:** $25.000 (mínimo) — $100.000+  
+**Paso:** $1.000  
+**Campo de texto:** Prefijo `$ ARS` y sufijo `/mes`
+
+**Texto expansible (read-more):**
+> ¿Cómo funciona? La cuota sindical es la forma en que sostenemos el gremio entre todos. Con esa contribución financiamos los servicios, beneficios y la estructura que defiende a los trabajadores y trabajadoras informáticas.  
 > En muchos gremios equivale al 3% del salario bruto. En AGC elegimos un modelo flexible: podés definir un monto mensual fijo según tus posibilidades.  
 > Tu aporte permite sostener:  
 > • Asesoramiento legal y gremial  
@@ -189,9 +214,9 @@ Visible cuando `lugar_trabajo` == `sede` o `hibrido`.
 
 **Opción de cuota flexible:**  
 Checkbox visible debajo del slider:
-> "Por ahora no puedo aportar ese monto — quiero que me contacten."
+> "Por ahora no puedo aportar ni el mínimo — quiero que me contacten."
 
-Al marcarse, el slider y el campo de monto se deshabilitan (visualmente atenuados) y se registra la solicitud de contacto.
+Al marcarse, el slider y el campo de monto se deshabilitan (visualmente atenuados) y se registra la solicitud de contacto. El valor de cuota elegido se mantiene sin cambios.
 
 ---
 

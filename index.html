@@ -100,7 +100,7 @@
                         <div class="col-md-12 mb-2">
                           <p class="text-muted small mb-0">Para proteger a los afiliados y afiliadas de afiliaciones
                             falsas, necesitamos confirmar que sos vos. Esta documentación es confidencial y se usa
-                            únicamente para validar tu identidad.</p>
+                            para validar tu identidad.</p>
                         </div>
                       </div>
                       <div class="row">
@@ -155,20 +155,20 @@
                               placeholder="Calle, Número, Piso, Oficina" type="text" />
                             <label class="control-label" for="personal_direccion">Dirección</label>
                           </div>
-                          <div class="form-group required col-md-3 custom-floating-label">
+                          <div class="form-group required col-md-3 custom-floating-label label-sm">
                             <input class="form-control" id="personal_localidad" name="personal_localidad"
                               placeholder=" " type="text" />
                             <label class="control-label" for="personal_localidad">Localidad</label>
                           </div>
-                          <div class="form-group required col-md-3 custom-floating-label">
+                          <div class="form-group required col-md-3 custom-floating-label label-sm">
                             <input class="form-control" id="personal_cp" name="personal_cp" placeholder=" "
                               type="text" />
-                            <label class="control-label" for="personal_cp">Código postal</label>
+                            <label class="control-label" for="personal_cp">Cód. Postal</label>
                           </div>
                         </div>
                         <div class="row">
                           <div class="form-group required custom-floating-label col-md-12">
-                            <select class="custom-select" id="personal_provincia" name="personal_provincia" required="">
+                            <select class="custom-select" id="personal_provincia" name="personal_provincia">
                               <option selected="" value="">Seleccione...</option>
                               <option value="02">Ciudad Autónoma de Buenos Aires</option>
                               <option value="06">Buenos Aires</option>
@@ -212,15 +212,15 @@
                 <div class="card-body">
                   <div class="row justify-content-center">
                     <div class="col-12 col-md-9">
-                      <h4 class="card-title text-primary mb-4">Datos profesionales</h4>
+                      <h4 class="card-title text-primary mb-4">Datos laborales</h4>
 
                       <!-- 0) Rol Profesional - siempre visible y requerido -->
                       <div class="row">
                         <div class="form-group required col-md-12 custom-floating-label">
                           <input class="form-control" id="rol_profesional" name="rol_profesional" placeholder=" "
                             type="text" required="" />
-                          <label class="control-label" for="rol_profesional">¿Cuál es tu rol?</label>
-                          <div class="field-help">Por ejemplo: QA Jr., Desarrollador/a Backend, Soporte técnico, etc.
+                          <label class="control-label" for="rol_profesional">¿Cuál es tu rol profesional?</label>
+                          <div class="field-help">Por ejemplo: Programador/a Jr, Soporte técnico, QA Sr, etc.
                           </div>
                         </div>
                       </div>
@@ -229,17 +229,18 @@
                         <div class="form-group required custom-floating-label col-md-12">
                           <select class="custom-select" id="tipo_relacion_laboral" name="tipo_relacion_laboral"
                             required="">
-                            <option selected="" value="">Seleccione...</option>
+                            <option selected="" value="">Modalidad de trabajo...</option>
                             <option value="dependencia_con_recibo">Trabajo en relación de dependencia (con recibo de
                               sueldo)</option>
-                            <option value="facturo_regular">Facturo a una empresa de forma continua (contractor)
+                            <option value="dependencia_no_registrada">Trabajo en relación de dependencia no registrada
+                              (informal)</option>
+                            <option value="facturo_regular">Facturo a una empresa de forma continua
+                              (&ldquo;contractor&rdquo;)
                             </option>
-                            <option value="tercerizado_consultora">Trabajo tercerizado a través de una consultora o
-                              agencia</option>
                             <option value="socio_cooperativa">Soy socio/a de una cooperativa de trabajo</option>
                             <option value="independiente">Trabajo de forma independiente (múltiples clientes /
                               proyectos)</option>
-                            <option value="no_trabajando">Actualmente no estoy trabajando en informática</option>
+                            <option value="no_trabajando">Actualmente no estoy trabajando</option>
                           </select>
                           <label class="control-label" for="tipo_relacion_laboral">¿Cuál es tu situación
                             laboral?</label>
@@ -247,14 +248,47 @@
                       </div>
 
 
+                      <!-- Actividad del empleador (dependencia_con_recibo y facturo_regular) -->
+                      <div class="row" id="grupo_empleador_actividad" style="display:none;">
+                        <div class="form-group required custom-floating-label col-md-12">
+                          <select class="custom-select" id="empleador_actividad" name="empleador_actividad">
+                            <option selected="" value="">Actividad principal...</option>
+                            <option value="informatica">Informática (software, hardware y servicios informáticos)
+                            </option>
+                            <option value="otro_sector">Otro sector</option>
+                            <option value="no_se">No lo sé</option>
+                          </select>
+                          <label class="control-label" for="empleador_actividad">¿Cuál es la actividad de tu
+                            empleador?</label>
+                        </div>
+                      </div>
 
-                      <!-- 2) Lugar de Trabajo (Para Dependencia / Independiente excepto freelance) -->
+                      <!-- 3) Recibo de Sueldo (Aparece para dependencia_con_recibo y tercerizado_consultora) -->
+                      <div class="row" id="grupo_recibo" style="display:none;">
+                        <div class="form-group col-md-12">
+                          <label class="control-label" for="doc_recibo">Último recibo de sueldo</label>
+                          <div class="upload-zone" id="zone_recibo">
+                            <div class="upload-icon">📄</div>
+                            <div class="upload-text">
+                              <div class="upload-label">Arrastrá o clic — Último recibo de sueldo</div>
+                              <div class="upload-hint">Cargá el recibo más reciente que tengas.<br>Lo usamos
+                                para validar tu vínculo laboral.<br>Es confidencial y no se informa a tu empleador.
+                              </div>
+                              <div class="upload-filename" id="fname_recibo" style="display:none;"></div>
+                            </div>
+                            <input id="doc_recibo" name="doc_recibo" type="file" accept="image/*,.pdf" />
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- 2) Lugar de Trabajo (Aparece después de subir el recibo, o directamente para otros TRL) -->
                       <div class="row" id="grupo_lugar_trabajo" style="display:none;">
                         <div class="form-group required custom-floating-label col-md-12">
                           <select class="custom-select" id="lugar_trabajo" name="lugar_trabajo">
                             <option selected="" value="">Seleccione...</option>
-                            <option value="sede" id="opt_sede">Trabajo en la sede de la empresa</option>
-                            <option value="casa">Trabajo desde mi casa (home office)</option>
+                            <option value="sede" id="opt_sede">Trabajo en sede de la empresa</option>
+                            <option value="casa">Trabajo desde casa (remoto)</option>
+                            <option value="calle">Hago trabajo de calle</option>
                             <option value="hibrido">Trabajo en modalidad híbrida</option>
                           </select>
                           <label class="control-label" for="lugar_trabajo">¿Desde dónde trabajás habitualmente?</label>
@@ -262,7 +296,7 @@
                         </div>
                       </div>
 
-                      <!-- 3) Dirección empresa (Aparece si Lugar = Sede / Híbrido) -->
+                      <!-- 4) Dirección empresa (Aparece si Lugar = Sede / Híbrido) -->
                       <div id="grupo_direccion" style="display:none;">
                         <div class="row">
                           <div class="form-group col-md-6 custom-floating-label">
@@ -270,15 +304,15 @@
                               placeholder="Calle, Número, Piso, Oficina" type="text" />
                             <label class="control-label" for="empleador_direccion">Dirección de la empresa</label>
                           </div>
-                          <div class="form-group col-md-3 custom-floating-label">
+                          <div class="form-group col-md-3 custom-floating-label label-sm">
                             <input class="form-control" id="empleador_localidad" name="empleador_localidad"
                               placeholder=" " type="text" />
                             <label class="control-label" for="empleador_localidad">Localidad</label>
                           </div>
-                          <div class="form-group col-md-3 custom-floating-label">
+                          <div class="form-group col-md-3 custom-floating-label label-sm">
                             <input class="form-control" id="empleador_cp" name="empleador_cp" placeholder=" "
                               type="text" />
-                            <label class="control-label" for="empleador_cp">Código postal</label>
+                            <label class="control-label" for="empleador_cp">Cód. Postal</label>
                           </div>
                         </div>
                         <div class="row">
@@ -315,7 +349,7 @@
                         </div>
                       </div>
 
-                      <!-- 4) Home Office días (Sólo Híbrido) -->
+                      <!-- 5) Home Office días (Sólo Híbrido) -->
                       <div class="row" id="grupo_home_office" style="display:none;">
                         <div class="form-group col-md-12">
                           <label class="control-label" for="home_office_dias">¿Cuántos días hacés de <i>home
@@ -328,24 +362,6 @@
                             </div>
                           </div>
                           <div class="field-help">Indicá cuántos días por semana solés trabajar desde casa.</div>
-                        </div>
-                      </div>
-
-                      <!-- 5) Recibo de Sueldo (Sólo Dependencia con recibo) -->
-                      <div class="row" id="grupo_recibo" style="display:none;">
-                        <div class="form-group col-md-12">
-                          <label class="control-label" for="doc_recibo">Último recibo de sueldo</label>
-                          <div class="upload-zone" id="zone_recibo">
-                            <div class="upload-icon">📄</div>
-                            <div class="upload-text">
-                              <div class="upload-label">Arrastrá o clic — Último recibo de sueldo</div>
-                              <div class="upload-hint">Cargá el recibo más reciente que tengas.<br>Lo usamos únicamente
-                                para validar tu vínculo laboral.<br>Es confidencial y no se informa a tu empleador.
-                              </div>
-                              <div class="upload-filename" id="fname_recibo" style="display:none;"></div>
-                            </div>
-                            <input id="doc_recibo" name="doc_recibo" type="file" accept="image/*,.pdf" />
-                          </div>
                         </div>
                       </div>
 
@@ -378,34 +394,68 @@
 
                       <!-- Cuota sindical -->
                       <h5 class="mb-2 font-weight-bold text-primary">Elegí tu aporte mensual</h5>
-                      <p class="mb-1">
-                        <a data-toggle="collapse" href="#collapseAyudaAporte" role="button" aria-expanded="false"
-                          aria-controls="collapseAyudaAporte" class="text-secondary text-decoration-none">
-                          <i class="fas fa-info-circle mr-1"></i>Cuota sindical, ¿cómo funciona? <i
-                            class="fas fa-chevron-down ml-1 small"></i>
+                      <div class="mb-4">
+                        <div id="readMoreContainer"
+                          style="position: relative; overflow: hidden; max-height: 4.5em; transition: max-height 0.3s ease; cursor: pointer;">
+                          <p>
+                            <b class="text-secondary"><i class="fas fa-info-circle mr-1"></i>¿Cómo funciona?</b>
+                            La cuota sindical es la forma en que sostenemos el gremio entre todos. Con esa contribución
+                            financiamos los servicios, beneficios y la estructura que defiende a los trabajadores y
+                            trabajadoras informáticas.
+                          </p>
+                          <p>En muchos gremios equivale al 3% del salario bruto. En AGC elegimos un modelo flexible:
+                            podés
+                            definir un monto mensual fijo según tus posibilidades.</p>
+                          <p class="mb-1">Tu aporte permite sostener:</p>
+                          <ul class="mb-2">
+                            <li>Asesoramiento legal y gremial</li>
+                            <li>Beneficios y descuentos para afiliados/as</li>
+                            <li>Formación profesional y gremial</li>
+                            <li>Defensa ante conflictos laborales</li>
+                            <li>Negociación colectiva en la industria</li>
+                          </ul>
+                          <p class="mb-0">Periódicamente te invitamos a revisar y actualizar tu aporte.</p>
+                          <div id="readMoreFade"
+                            style="position: absolute; bottom: 0; left: 0; right: 0; height: 2.5em; background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1)); pointer-events: none; transition: opacity 0.3s ease;">
+                          </div>
+                        </div>
+                        <a href="javascript:void(0);" id="readMoreToggle"
+                          class="text-primary small font-weight-bold text-decoration-none"
+                          style="display: inline-block; margin-top: 0.25rem;">
+                          Leer más <i class="fas fa-chevron-down ml-1"></i>
                         </a>
-                      </p>
-                      <div class="collapse mb-3" id="collapseAyudaAporte">
-                        <p>El aporte sindical es la forma en que sostenemos el gremio entre todos. Con esa contribución
-                          financiamos los servicios, beneficios y la estructura que defiende a los trabajadores y
-                          trabajadoras informáticas.</p>
-                        <p>En muchos gremios equivale al 3% del salario bruto. En AGC elegimos un modelo flexible: podés
-                          definir un monto mensual fijo según tus posibilidades.</p>
-                        <p class="mb-1">Tu aporte permite sostener:</p>
-                        <ul class="mb-2">
-                          <li>Asesoramiento legal y gremial</li>
-                          <li>Beneficios y descuentos para afiliados/as</li>
-                          <li>Formación profesional y gremial</li>
-                          <li>Defensa ante conflictos laborales</li>
-                          <li>Negociación colectiva en la industria</li>
-                        </ul>
-                        <p class="mb-0">Periódicamente te invitamos a revisar y actualizar tu aporte.</p>
                       </div>
+
+                      <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+                          const container = document.getElementById('readMoreContainer');
+                          const toggle = document.getElementById('readMoreToggle');
+                          const fade = document.getElementById('readMoreFade');
+
+                          function toggleReadMore(e) {
+                            if (e) e.preventDefault();
+                            if (container.style.maxHeight === '4.5em') {
+                              container.style.maxHeight = '1000px';
+                              fade.style.opacity = '0';
+                              toggle.innerHTML = 'Leer menos <i class="fas fa-chevron-up ml-1"></i>';
+                            } else {
+                              container.style.maxHeight = '4.5em';
+                              fade.style.opacity = '1';
+                              toggle.innerHTML = 'Leer más <i class="fas fa-chevron-down ml-1"></i>';
+                            }
+                          }
+
+                          if (toggle && container) {
+                            toggle.addEventListener('click', toggleReadMore);
+                            container.addEventListener('click', toggleReadMore);
+                          }
+                        });
+                      </script>
 
                       <div class="form-group required mb-4">
                         <div class="cuota-slider-container mb-3 mt-1">
                           <input id="cuota_slider" max="100000" min="25000" step="1000" style="width: 100%;"
-                            type="range" value="25000" />
+                            type="range" value="40000" />
                           <div class="d-flex justify-content-between text-muted small mt-1">
                             <span>$ 25.000 (Mínimo)</span>
                             <span>$ 100.000+</span>
@@ -413,18 +463,21 @@
                         </div>
                         <div class="input-group mb-2">
                           <div class="input-group-prepend">
-                            <span class="input-group-text">$</span>
+                            <span class="input-group-text">$ ARS</span>
                           </div>
                           <input class="form-control" id="cuota_sindical" min="25000" name="cuota_sindical"
-                            placeholder=" " required="" type="text" value="25000" />
+                            placeholder=" " required="" type="text" value="40000" />
+                          <div class="input-group-append">
+                            <span class="input-group-text">/mes</span>
+                          </div>
                         </div>
-                        <small class="form-text text-muted" id="cuota_help">Como referencia: equivale aproximadamente al
-                          3% de un salario bruto de $700.000.</small>
+                        <small class="form-text text-muted" id="cuota_help">Como referencia: este monto de cuota
+                          sindical equivaldría al 3% de un salario bruto de $ ...</small>
                         <div class="form-check mt-3">
                           <input class="form-check-input" type="checkbox" id="chk_cuota_flexible"
                             name="chk_cuota_flexible" value="1">
                           <label class="form-check-label" for="chk_cuota_flexible">
-                            Por ahora no puedo aportar ese monto — quiero que me contacten.
+                            Por ahora no puedo aportar ni el mínimo — quiero que me contacten.
                           </label>
                         </div>
                       </div>

@@ -47,7 +47,7 @@
 **Cambios importantes en Paso 1:**
 
 - Los campos de **domicilio personal** ahora son **condicionales**: solo aparecen si el usuario marca el checkbox `chk_domicilio_diferente` ("Vivo en un domicilio diferente al que figura en mi DNI").
-- Se agregó un **microcopy** antes de los campos de DNI: _"Para proteger a los afiliados y afiliadas de afiliaciones falsas, necesitamos confirmar que sos vos. Esta documentación es confidencial y se usa únicamente para validar tu identidad."_
+- Se agregó un **microcopy** antes de los campos de DNI: _"Para proteger a los afiliados y afiliadas de afiliaciones falsas, necesitamos confirmar que sos vos. Esta documentación es confidencial y se usa para validar tu identidad."_
 
 ---
 
@@ -71,7 +71,7 @@
 | ID nuevo | Tipo | Descripción |
 |---|---|---|
 | `tipo_relacion_laboral` | select | Campo central que controla la visibilidad de los demás grupos (ver sección 3) |
-| `lugar_trabajo` | select | Opciones: `sede`, `casa`, `hibrido` |
+| `lugar_trabajo` | select | Opciones: `sede`, `casa`, `calle`, `hibrido` |
 | `home_office_dias` | range (slider) | 0–5 días. Visible solo cuando `lugar_trabajo == hibrido` |
 | `doc_recibo` | file (upload-zone) | Último recibo de sueldo. Visible solo cuando `tipo_relacion_laboral == dependencia_con_recibo` |
 | `observaciones_laborales` | textarea | Label y placeholder **dinámicos** según TRL (ver sección 3.2) |

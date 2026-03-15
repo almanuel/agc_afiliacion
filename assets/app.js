@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function updateCuotaHelp(source) {
         var v = parseFloat(cuotaMask ? cuotaMask.unmaskedValue : (cuotaEl2 ? cuotaEl2.value : 0)) || 0;
         if (cuotaHelp) {
-            cuotaHelp.textContent = 'Como referencia: equivale aproximadamente al 3% de un salario bruto de $ ' +
+            cuotaHelp.textContent = 'Como referencia: este monto de cuota sindical equivaldría al 3% de un salario bruto de $ ' +
                 Math.round(v * 100 / 3).toLocaleString('es-AR');
         }
         if (source !== 'slider' && cuotaSlider && v >= 25000 && v <= 100000) {
@@ -143,17 +143,17 @@ document.addEventListener('DOMContentLoaded', function () {
     var obsConfig = {
         dependencia_con_recibo: {
             label: 'Información adicional (opcional)',
-            placeholder: 'Por ejemplo: tengo dos empleadores, trabajo part-time, etc.',
+            placeholder: 'Por ejemplo: trabajo part-time, estoy tercerizado, tengo dos empleadores, etc.',
             required: false
         },
         facturo_regular: {
             label: 'Información adicional (opcional)',
-            placeholder: 'Por ejemplo: facturo en dólares, trabajo para una empresa del exterior, etc.',
+            placeholder: "Por ejemplo: Sobre tu facturación y/o estructura de tus 'clientes'",
             required: false
         },
-        tercerizado_consultora: {
+        dependencia_no_registrada: {
             label: 'Información adicional (opcional)',
-            placeholder: 'Por ejemplo: estoy asignado a un cliente hace más de un año, trabajo en las oficinas del cliente, etc.',
+            placeholder: 'Contanos dónde trabajás y tu situación, nos pondremos en contacto.',
             required: false
         },
         socio_cooperativa: {
@@ -186,7 +186,8 @@ document.addEventListener('DOMContentLoaded', function () {
         var lblObs = document.getElementById('lbl_observaciones');
         var txtObs = document.getElementById('observaciones_laborales');
         var fgObs = document.getElementById('fg_observaciones');
-
+        var grpActividad = document.getElementById('grupo_empleador_actividad');
+        var selActividad = document.getElementById('empleador_actividad');
         // Reset all conditional groups
         grpLugar.style.display = 'none';
         selLugar.removeAttribute('required');
@@ -197,6 +198,7 @@ document.addEventListener('DOMContentLoaded', function () {
             el.removeAttribute('required');
             el.classList.remove('is-invalid', 'is-valid');
         });
+        grpDir.querySelectorAll('.form-group').forEach(function (fg) { fg.classList.remove('required'); });
 
         grpHomeOffice.style.display = 'none';
 
@@ -212,6 +214,11 @@ document.addEventListener('DOMContentLoaded', function () {
         txtObs.classList.remove('is-invalid', 'is-valid');
         fgObs.classList.remove('required');
 
+        if (grpActividad) {
+            grpActividad.style.display = 'none';
+            if (selActividad) { selActividad.removeAttribute('required'); selActividad.classList.remove('is-invalid', 'is-valid'); }
+        }
+
         // Apply dynamic config for the textarea
         var cfg = obsConfig[trl];
         if (cfg) {
@@ -224,6 +231,13 @@ document.addEventListener('DOMContentLoaded', function () {
             grpObs.style.display = 'flex';
         }
 
+        // Helper: show employer address fields (and mark form-groups as required)
+        function showDirRequired() {
+            grpDir.style.display = 'block';
+            grpDir.querySelectorAll('.form-group').forEach(function (fg) { fg.classList.add('required'); });
+            grpDir.querySelectorAll('input, select').forEach(function (el) { el.setAttribute('required', 'required'); });
+        }
+
         if (trl === 'dependencia_con_recibo') {
             grpLugar.style.display = 'flex'; selLugar.setAttribute('required', 'required');
             grpRecibo.style.display = 'flex';
@@ -231,20 +245,28 @@ document.addEventListener('DOMContentLoaded', function () {
             grpRecibo.querySelector('input').setAttribute('required', 'required');
             grpRecibo.querySelector('input').required = true;
 
+            if (grpActividad) {
+                grpActividad.style.display = 'flex';
+                if (selActividad) selActividad.setAttribute('required', 'required');
+            }
+
             if (lugar === 'sede' || lugar === 'hibrido') {
-                grpDir.style.display = 'block';
-                grpDir.querySelectorAll('input, select').forEach(function (el) { el.setAttribute('required', 'required'); });
+                showDirRequired();
             }
             if (lugar === 'hibrido') {
                 grpHomeOffice.style.display = 'flex';
             }
 
-        } else if (trl === 'facturo_regular' || trl === 'tercerizado_consultora' || trl === 'socio_cooperativa') {
+        } else if (trl === 'facturo_regular' || trl === 'socio_cooperativa') {
             grpLugar.style.display = 'flex'; selLugar.setAttribute('required', 'required');
 
+            if (trl === 'facturo_regular' && grpActividad) {
+                grpActividad.style.display = 'flex';
+                if (selActividad) selActividad.setAttribute('required', 'required');
+            }
+
             if (lugar === 'sede' || lugar === 'hibrido') {
-                grpDir.style.display = 'block';
-                grpDir.querySelectorAll('input, select').forEach(function (el) { el.setAttribute('required', 'required'); });
+                showDirRequired();
             }
             if (lugar === 'hibrido') {
                 grpHomeOffice.style.display = 'flex';
