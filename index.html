@@ -217,8 +217,11 @@
                       <!-- 0) Rol Profesional - siempre visible y requerido -->
                       <div class="row">
                         <div class="form-group required col-md-12 custom-floating-label">
-                          <input class="form-control" id="rol_profesional" name="rol_profesional" placeholder=" "
-                            type="text" required="" />
+                          <div class="autosuggest-wrapper">
+                            <input class="form-control" id="rol_profesional" name="rol_profesional" placeholder=" "
+                              type="text" required="" autocomplete="off" />
+                            <ul class="autosuggest-list" id="rol_profesional_suggestions"></ul>
+                          </div>
                           <label class="control-label" for="rol_profesional">¿Cuál es tu rol profesional?</label>
                           <div class="field-help">Por ejemplo: Programador/a Jr, Soporte técnico, QA Sr, etc.
                           </div>

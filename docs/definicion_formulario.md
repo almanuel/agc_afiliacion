@@ -69,7 +69,39 @@ Visible solo si el checkbox está marcado.
 
 | Label | ID | Tipo | Requerido | Ayuda |
 |-------|----|------|-----------|-------|
-| ¿Cuál es tu rol profesional? | `rol_profesional` | text | ✅ | "Por ejemplo: Programador/a Jr, Soporte técnico, QA Sr, etc." |
+| ¿Cuál es tu rol profesional? | `rol_profesional` | text (auto-suggest) | ✅ | "Por ejemplo: Programador/a Jr, Soporte técnico, QA Sr, etc." |
+
+**Sugerencias iniciales de rol profesional:**
+
+| Sugerencia |
+|------------|
+| Programador/a de software |
+| Analista de calidad de software |
+| Analista funcional |
+| Analista de seguridad informática |
+| Devops |
+| Administrador de sistemas |
+| Diseñador/a de UX / UI |
+| Administrador de redes e infraestructura |
+| Gestor/a de proyecto TI |
+| Implementador de proyectos TI |
+| Soporte técnico |
+| Mesa de ayuda |
+| Analista de datos |
+| Analista en marketing digital |
+| Operador de datos |
+| Administrador base de datos |
+| Administrador de comunidades (C.M.) |
+| Soporte de línea de producción de hardware |
+| Control de calidad en hardware |
+| Diseñador de línea de producción de hardware |
+| Analista de recursos humanos TI |
+| Vendedor TI |
+| Administrativo TI |
+| RRPP, comunicaciones y asuntos institucionales TI |
+| Servicios generales y mantenimiento |
+
+> El usuario puede escribir libremente o seleccionar una sugerencia del desplegable. Las sugerencias seleccionadas también pueden editarse.
 
 ### Situación laboral
 

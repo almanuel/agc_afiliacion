@@ -399,4 +399,132 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // --- 9. Auto-suggest rol profesional ---
+    (function () {
+        var suggestions = [
+            'Programador/a de software',
+            'Analista de calidad de software',
+            'Analista funcional',
+            'Analista de seguridad informática',
+            'Devops',
+            'Administrador de sistemas',
+            'Diseñador/a de UX / UI',
+            'Administrador de redes e infraestructura',
+            'Gestor/a de proyecto TI',
+            'Implementador de proyectos TI',
+            'Soporte técnico',
+            'Mesa de ayuda',
+            'Analista de datos',
+            'Analista en marketing digital',
+            'Operador de datos',
+            'Administrador base de datos',
+            'Administrador de comunidades (C.M.)',
+            'Soporte de línea de producción de hardware',
+            'Control de calidad en hardware',
+            'Diseñador de línea de producción de hardware',
+            'Analista de recursos humanos TI',
+            'Vendedor TI',
+            'Administrativo TI',
+            'RRPP, comunicaciones y asuntos institucionales TI',
+            'Servicios generales y mantenimiento'
+        ];
+
+        var input = document.getElementById('rol_profesional');
+        var list = document.getElementById('rol_profesional_suggestions');
+        var wrapper = input ? input.closest('.autosuggest-wrapper') : null;
+        if (!input || !list) return;
+
+        var activeIndex = -1;
+        var justSelected = false;
+
+        function updateHasValue() {
+            if (wrapper) {
+                if (input.value.trim()) wrapper.classList.add('has-value');
+                else wrapper.classList.remove('has-value');
+            }
+        }
+
+        function renderList(query) {
+            list.innerHTML = '';
+            activeIndex = -1;
+            if (!query) { list.style.display = 'none'; return; }
+
+            var q = query.toLowerCase();
+            var matches = suggestions.filter(function (s) {
+                return s.toLowerCase().indexOf(q) !== -1;
+            });
+
+            if (matches.length === 0) { list.style.display = 'none'; return; }
+
+            matches.forEach(function (item) {
+                var li = document.createElement('li');
+                var idx = item.toLowerCase().indexOf(q);
+                var before = item.substring(0, idx);
+                var match = item.substring(idx, idx + query.length);
+                var after = item.substring(idx + query.length);
+                li.innerHTML = before + '<mark>' + match + '</mark>' + after;
+                li.addEventListener('mousedown', function (e) {
+                    e.preventDefault();
+                    input.value = item;
+                    list.style.display = 'none';
+                    input.classList.remove('is-invalid');
+                    input.classList.add('is-valid');
+                    justSelected = true;
+                    input.dispatchEvent(new Event('input', { bubbles: true }));
+                });
+                list.appendChild(li);
+            });
+            list.style.display = 'block';
+        }
+
+        function setActive(items) {
+            items.forEach(function (li) { li.classList.remove('active'); });
+            if (activeIndex >= 0 && activeIndex < items.length) {
+                items[activeIndex].classList.add('active');
+                items[activeIndex].scrollIntoView({ block: 'nearest' });
+            }
+        }
+
+        input.addEventListener('input', function () {
+            if (justSelected) { justSelected = false; updateHasValue(); return; }
+            renderList(this.value.trim());
+            updateHasValue();
+        });
+
+        input.addEventListener('focus', function () {
+            if (this.value.trim()) renderList(this.value.trim());
+        });
+
+        input.addEventListener('blur', function () {
+            setTimeout(function () { list.style.display = 'none'; }, 150);
+        });
+
+        input.addEventListener('keydown', function (e) {
+            var items = list.querySelectorAll('li');
+            if (!items.length || list.style.display === 'none') return;
+
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                activeIndex = (activeIndex + 1) % items.length;
+                setActive(items);
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                activeIndex = (activeIndex - 1 + items.length) % items.length;
+                setActive(items);
+            } else if (e.key === 'Enter') {
+                e.preventDefault();
+                if (activeIndex >= 0 && activeIndex < items.length) {
+                    input.value = items[activeIndex].textContent;
+                    list.style.display = 'none';
+                    input.classList.remove('is-invalid');
+                    input.classList.add('is-valid');
+                    justSelected = true;
+                    input.dispatchEvent(new Event('input', { bubbles: true }));
+                }
+            } else if (e.key === 'Escape') {
+                list.style.display = 'none';
+            }
+        });
+    })();
+
 });
