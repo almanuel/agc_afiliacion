@@ -46,8 +46,7 @@
     <!-- Jumbotron -->
     <div class="jumbotron">
       <div class="container">
-        <h3>Cuenta Corriente</h3>
-        <p class="afiliado-nombre">Manuel Alonso PRUEBA</p>
+        <h3>Hola, Manuel</h3>
       </div>
     </div>
 
@@ -117,11 +116,15 @@
               <div id="div_form_pago">
                 <div class="pago-card">
 
-                  <!-- Bloque de contexto -->
+                  <!-- Bloque de contexto (colapsable) -->
                   <div class="pago-contexto mb-4">
-                    <p class="pago-contexto-titulo"><i class="fas fa-info-circle mr-1"></i> ¿Cómo funciona?</p>
-                    <p>Alrededor del día 10 de cada mes registramos tu cuota en el estado de cuenta. Podés abonarla cuando quieras — en un pago único o activando el débito automático para que se descuente solo cada mes.</p>
-                    <p class="mb-0">Si pagás más que tu cuota mensual, el saldo a favor se aplica automáticamente a los meses siguientes.</p>
+                    <a class="pago-contexto-titulo" data-toggle="collapse" href="#ayuda-como-funciona" role="button" aria-expanded="false" aria-controls="ayuda-como-funciona" style="text-decoration:none; cursor:pointer;">
+                      <i class="fas fa-info-circle mr-1"></i> ¿Cómo funciona? <i class="fas fa-chevron-down ml-1" style="font-size:0.75em;"></i>
+                    </a>
+                    <div class="collapse" id="ayuda-como-funciona">
+                      <p class="mt-2">Alrededor del día 10 de cada mes registramos tu cuota en el estado de cuenta. Podés abonarla cuando quieras — en un pago único o activando el débito automático para que se descuente solo cada mes.</p>
+                      <p class="mb-0">Si pagás más que tu cuota mensual, el saldo a favor se aplica automáticamente a los meses siguientes.</p>
+                    </div>
                   </div>
 
                   <form id="form_subcripcion">
@@ -186,11 +189,11 @@
                     <span>+54 11 6091 9455</span>
                   </div>
                 </a>
-                <a class="ayuda-item" href="/cdn-cgi/l/email-protection#f586909687908194879c94db928790989c9499b5949296db9a8792db9487">
+                <a class="ayuda-item" href="mailto:afiliaciones@agc.org.ar">
                   <i class="fas fa-envelope"></i>
                   <div>
                     <strong>Email</strong>
-                    <span><span class="__cf_email__" data-cfemail="2457414756415045564d450a435641494d4548644543470a4b56430a4556">[email&#160;protected]</span></span>
+                    <span>afiliaciones@agc.org.ar</span>
                   </div>
                 </a>
               </div>
@@ -233,7 +236,7 @@
     </div>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="./assets/jquery-3.2.1.slim.min.js"></script>
+  <script src="./assets/jquery-3.2.1.slim.min.js"></script>
   <script src="./assets/bootstrap.min.js"></script>
   <script src="./assets/axios.min.js"></script>
 
