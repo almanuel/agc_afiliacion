@@ -392,6 +392,69 @@ body {
   font-family: 'Inter', sans-serif !important;
 }
 
+/* ── Auto-suggest dropdown ──────────────────────────────────────── */
+
+.autosuggest-wrapper {
+  position: relative;
+}
+
+.autosuggest-list {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1050;
+  max-height: 220px;
+  overflow-y: auto;
+  margin: 2px 0 0;
+  padding: 4px 0;
+  list-style: none;
+  background: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.autosuggest-list li {
+  padding: 8px 14px;
+  font-size: 0.92rem;
+  color: #212529;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+
+.autosuggest-list li:hover,
+.autosuggest-list li.active {
+  background: #e8f0fe;
+  color: #0069d9;
+}
+
+.autosuggest-list li mark {
+  background: none;
+  font-weight: 700;
+  color: inherit;
+  padding: 0;
+}
+
+/* Float label when input inside autosuggest-wrapper has content or focus */
+.custom-floating-label .autosuggest-wrapper.has-value+label,
+.custom-floating-label .autosuggest-wrapper:focus-within+label {
+  transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+  color: #6c757d;
+}
+
+.custom-floating-label .autosuggest-wrapper:focus-within+label {
+  color: #0069d9;
+}
+
+/* Ensure the wrapper input inherits floating-label sizing */
+.custom-floating-label .autosuggest-wrapper input.form-control {
+  height: 3.5rem;
+  padding: 1.25rem 1rem 0.25rem;
+  border-radius: 0.5rem;
+}
+
 /* ── confirmacion.html ──────────────────────────────────────────── */
 
 /* Disable hover effect on the steps card */

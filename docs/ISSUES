@@ -1,5 +1,38 @@
 ISSUES
 
+[x] I want to try an auto-suggest input for rol_profesional. 
+
+User would type and suggestions will dropdwn. User can write freely or pick a suggestion, which can also me edited. 
+
+We want to keep an updated list of suggestions, staring with this list: 
+
+Programador/a de software
+Analista de calidad de software
+Analista funcional
+Analista de seguridad informática
+Devops
+Administrador de sistemas
+Diseñador/a de UX / UI
+Administrador de redes e tnfraestructura
+Gestor/a de proyecto TI
+Implementador de proyectos TI
+Soporte técnico
+Mesa de ayuda
+Analista de aatos
+Analista en marketing digital
+Operador de datos
+Administrador base de datos
+Administrador de comunidades (C.M.)
+Soporte de línea de producción de hardware
+Control de calidad en hardware
+Diseñador de Línea de producción de hardware
+Analista de recursos rumanos TI
+Vendedor TI
+Administrativo TI
+RRPP, comunicaciones y asuntos institucionales TI
+Servicios generales y mantenimiento
+
+
 [x] On field cuota, add a prefix "$ ARS" or similar in order to show currency is pesos argentinos. Also add some kind of suffix like "/mes" to show it's paid monthly. 
 
 [x] Field tipo_relacion_laboral, remove option "tercerizado_consultora". In the form and whole logic. In case user selects relacion de dependencia, set informacion adicional placeholder value to: "Por ejemplo: trabajo part-time, estoy tercerizado, tengo dos empleadores, etc."
