@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
+  <meta content='width=device-width, initial-scale=1.0' name='viewport' />
+  <link href='https://sumate.informaticos.ar/favicon.png' rel='icon' type='image/png' />
+  <link href='./assets/bootstrap.min.css' rel='stylesheet' />
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'>
+  <link href='https://fonts.googleapis.com' rel='preconnect' />
+  <link crossorigin='' href='https://fonts.gstatic.com' rel='preconnect' />
+  <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap' rel='stylesheet' />
+  <link href='../assets/app-cc.css' rel='stylesheet' />
+  <title>Cuenta Corriente — AGC</title>
+</head>
+
+<body>
+  <!-- Modal -->
+  <div class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <p>Modal body text goes here.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- Header logos -->
+    <div class="container header">
+      <div class="row align-items-center">
+        <div class="col-6">
+          <img src="./assets/agc.png" alt="AGC" height="44">
+        </div>
+        <div class="col-6 text-right">
+          <img src="./assets/ti.png" alt="Trabajadores Informáticos" height="44">
+        </div>
+      </div>
+    </div>
+
+    <!-- Jumbotron -->
+    <div class="jumbotron">
+      <div class="container">
+        <h3>Cuenta Corriente</h3>
+        <p class="afiliado-nombre">Manuel Alonso PRUEBA</p>
+      </div>
+    </div>
+
+    <!-- Contenido -->
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-10">
+
+          <!-- Saldo card -->
+          <div class="saldo-card con-deuda" id="saldo-card">
+            <div>
+              <div class="saldo-label">Saldo pendiente</div>
+              <div class="saldo-monto con-deuda" id="saldo-display">$ 279.000</div>
+              <div class="saldo-desc">Tenés cuotas pendientes de pago.</div>
+            </div>
+            <div>
+              <span class="estado-badge con-deuda">
+                <i class="fas fa-exclamation-circle"></i> Con deuda
+              </span>
+            </div>
+          </div>
+
+          <!-- Tabs -->
+          <ul class="nav nav-tabs mt-3" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="cuenta-tab" data-toggle="tab" href="#cuenta" role="tab">
+                <i class="fas fa-list-alt mr-1"></i> Estado de cuenta
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="pagos-tab" data-toggle="tab" href="#pagos" role="tab">
+                <i class="fas fa-credit-card mr-1"></i> Gestión de pagos
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="ayuda-tab" data-toggle="tab" href="#ayuda" role="tab">
+                <i class="fas fa-question-circle mr-1"></i> Ayuda
+              </a>
+            </li>
+          </ul>
+
+          <div class="tab-content" id="myTabContent">
+
+            <!-- TAB: Estado de cuenta -->
+            <div class="tab-pane fade show active" id="cuenta" role="tabpanel">
+              <div class="table-responsive">
+                <table class="table-movimientos">
+                  <thead>
+                    <tr>
+                      <th>Fecha</th>
+                      <th>Concepto</th>
+                      <th class="cell-number">Debe</th>
+                      <th class="cell-number">Haber</th>
+                      <th class="cell-number">Saldo</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tbody-movimientos">
+                    <!-- Generado por JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- TAB: Gestión de pagos -->
+            <div class="tab-pane fade" id="pagos" role="tabpanel">
+
+              <div id="div_form_pago">
+                <div class="pago-card">
+
+                  <!-- Bloque de contexto -->
+                  <div class="pago-contexto mb-4">
+                    <p class="pago-contexto-titulo"><i class="fas fa-info-circle mr-1"></i> ¿Cómo funciona?</p>
+                    <p>Alrededor del día 10 de cada mes registramos tu cuota en el estado de cuenta. Podés abonarla cuando quieras — en un pago único o activando el débito automático para que se descuente solo cada mes.</p>
+                    <p class="mb-0">Si pagás más que tu cuota mensual, el saldo a favor se aplica automáticamente a los meses siguientes.</p>
+                  </div>
+
+                  <form id="form_subcripcion">
+                    <div class="form-group">
+                      <label class="control-label font-weight-600" for="importe_suscr">Monto a pagar</label>
+                      <div class="input-group" style="max-width: 200px;">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">$</span>
+                        </div>
+                        <input class="form-control" id="importe_suscr" type="text" placeholder="0" required>
+                      </div>
+                      <div class="field-help mt-1">
+                        Tu cuota habitual es <strong id="cuota-habitual">$ 25.000</strong>. Podés ingresar un monto distinto.
+                      </div>
+                    </div>
+                  </form>
+
+                  <div class="custom-control custom-checkbox mb-3">
+                    <input id="chk_suscripcion" class="custom-control-input" type="checkbox" checked value="true">
+                    <label for="chk_suscripcion" class="custom-control-label">
+                      Debitarme este monto automáticamente cada mes
+                    </label>
+                  </div>
+
+                  <button id="btn_pagar" type="button" class="btn btn-primary">
+                    <i class="fas fa-credit-card mr-2"></i>Realizar pago
+                  </button>
+
+                  <p class="pago-pagotic-nota mt-3 mb-0">
+                    Los pagos se procesan a través de PagoTIC, bajo sus
+                    <a href="https://paypertic.com/terminos-y-condiciones-para-el-pagador.html" target="_blank">términos y condiciones</a>.
+                  </p>
+                </div>
+              </div>
+
+              <div id="tabla_suscripciones" style="display: none;" class="mt-4">
+                <p class="text-muted mb-2" style="font-size: 0.88rem;"><strong>Débito automático activo</strong> — se descuenta el monto indicado alrededor del día 10 de cada mes.</p>
+                <table id="tabla_suscripciones_table" class="tabla-suscripciones table">
+                  <thead>
+                    <tr>
+                      <th>Estado</th>
+                      <th>Comienzo</th>
+                      <th>Duración</th>
+                      <th>Importe</th>
+                      <th>Acción</th>
+                    </tr>
+                  </thead>
+                  <tbody id="table_suscripciones_body"></tbody>
+                </table>
+              </div>
+
+            </div>
+
+            <!-- TAB: Ayuda -->
+            <div class="tab-pane fade" id="ayuda" role="tabpanel">
+              <div class="ayuda-section">
+                <h5>¿Necesitás ayuda?</h5>
+                <a class="ayuda-item" href="https://api.whatsapp.com/send?phone=541160919455" target="_blank">
+                  <i class="fab fa-whatsapp"></i>
+                  <div>
+                    <strong>WhatsApp</strong>
+                    <span>+54 11 6091 9455</span>
+                  </div>
+                </a>
+                <a class="ayuda-item" href="/cdn-cgi/l/email-protection#f586909687908194879c94db928790989c9499b5949296db9a8792db9487">
+                  <i class="fas fa-envelope"></i>
+                  <div>
+                    <strong>Email</strong>
+                    <span><span class="__cf_email__" data-cfemail="2457414756415045564d450a435641494d4548644543470a4b56430a4556">[email&#160;protected]</span></span>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+          </div><!-- /.tab-content -->
+
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /.content -->
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 py-5">
+          <div class="d-flex justify-content-center">
+            <a class="social-media-icon" href="https://www.facebook.com/informaticos.ar/" target="_blank">
+              <i class="fab fa-facebook-f fa-2x mr-md-5 mr-3" aria-hidden="true"></i>
+            </a>
+            <a class="social-media-icon" href="https://twitter.com/informaticos_" target="_blank">
+              <i class="fab fa-twitter fa-2x mr-md-5 mr-3" aria-hidden="true"></i>
+            </a>
+            <a class="social-media-icon" href="https://www.linkedin.com/company/informaticos/" target="_blank">
+              <i class="fab fa-linkedin-in fa-2x mr-md-5 mr-3" aria-hidden="true"></i>
+            </a>
+            <a class="social-media-icon" href="https://www.instagram.com/informaticos.ar/" target="_blank">
+              <i class="fab fa-instagram fa-2x mr-md-5 mr-3" aria-hidden="true"></i>
+            </a>
+            <a class="social-media-icon" href="https://api.whatsapp.com/send?phone=541160919455" target="_blank">
+              <i class="fab fa-whatsapp fa-2x mr-md-5 mr-3" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright text-center py-3">
+      © <span id="copyright-year"></span> AGC | Trabajadores Informáticos
+    </div>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="./assets/jquery-3.2.1.slim.min.js"></script>
+  <script src="./assets/bootstrap.min.js"></script>
+  <script src="./assets/axios.min.js"></script>
+
+  <script>
+    // ── Helpers ──────────────────────────────────────────────
+
+    function formatFecha(iso) {
+      const meses = ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
+                     'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+      const [y, m, d] = iso.split('-').map(Number);
+      return `${d} ${meses[m - 1]} ${y}`;
+    }
+
+    function formatPeso(n) {
+      const abs = Math.abs(n);
+      return '$ ' + abs.toLocaleString('es-AR');
+    }
+
+    // ── Datos de prueba (reemplazar por API) ─────────────────
+
+    const movimientos = [
+      { fecha: '2026-03-12', concepto: 'Pago vía PagoTIC',        debe: 0,      haber: 27000,  saldo:  18000 },
+      { fecha: '2026-03-09', concepto: 'Boleta de pago 2026 03',  debe: 9000,   haber: 0,      saldo:  -9000 },
+      { fecha: '2026-02-04', concepto: 'Boleta de pago 2026 02',  debe: 9000,   haber: 0,      saldo:      0 },
+      { fecha: '2026-01-15', concepto: 'Pago vía PagoTIC',        debe: 0,      haber: 27000,  saldo:   9000 },
+      { fecha: '2026-01-12', concepto: 'Boleta de pago 2026 01',  debe: 9000,   haber: 0,      saldo: -18000 },
+      { fecha: '2025-11-13', concepto: 'Boleta de pago 2025 11',  debe: 9000,   haber: 0,      saldo: -27000 },
+      { fecha: '2025-10-03', concepto: 'Boleta de pago 2025 10',  debe: 9000,   haber: 0,      saldo: -18000 },
+      { fecha: '2025-09-20', concepto: 'Pago vía PagoTIC',        debe: 0,      haber: 54000,  saldo:  -9000 },
+      { fecha: '2025-09-09', concepto: 'Boleta de pago 2025 09',  debe: 9000,   haber: 0,      saldo: -63000 },
+      { fecha: '2025-08-07', concepto: 'Boleta de pago 2025 08',  debe: 9000,   haber: 0,      saldo: -54000 },
+      { fecha: '2025-07-11', concepto: 'Boleta de pago 2025 07',  debe: 9000,   haber: 0,      saldo: -45000 },
+      { fecha: '2025-06-09', concepto: 'Boleta de pago 2025 06',  debe: 9000,   haber: 0,      saldo: -36000 },
+      { fecha: '2025-05-05', concepto: 'Boleta de pago 2025 05',  debe: 9000,   haber: 0,      saldo: -27000 },
+      { fecha: '2025-04-09', concepto: 'Boleta de pago 2025 04',  debe: 9000,   haber: 0,      saldo: -18000 },
+      { fecha: '2025-03-06', concepto: 'Boleta de pago 2025 03',  debe: 9000,   haber: 0,      saldo:  -9000 },
+      { fecha: '2025-02-28', concepto: 'Pago vía PagoTIC',        debe: 0,      haber: 27000,  saldo:      0 },
+      { fecha: '2025-02-05', concepto: 'Boleta de pago 2025 02',  debe: 9000,   haber: 0,      saldo: -27000 },
+      { fecha: '2025-01-09', concepto: 'Boleta de pago 2025 01',  debe: 9000,   haber: 0,      saldo: -18000 },
+      { fecha: '2024-12-09', concepto: 'Boleta de pago 2024 12',  debe: 9000,   haber: 0,      saldo:  -9000 },
+      { fecha: '2024-11-20', concepto: 'Pago vía PagoTIC',        debe: 0,      haber: 36000,  saldo:      0 },
+      { fecha: '2024-11-05', concepto: 'Boleta de pago 2024 11',  debe: 9000,   haber: 0,      saldo: -36000 },
+      { fecha: '2024-10-07', concepto: 'Boleta de pago 2024 10',  debe: 9000,   haber: 0,      saldo: -27000 },
+      { fecha: '2024-09-05', concepto: 'Boleta de pago 2024 09',  debe: 9000,   haber: 0,      saldo: -18000 },
+      { fecha: '2024-08-15', concepto: 'Boleta de pago 2024 08',  debe: 9000,   haber: 0,      saldo:  -9000 },
+      { fecha: '2024-07-04', concepto: 'Boleta de pago 2024 07',  debe: 9000,   haber: 0,      saldo:      0 },
+      { fecha: '2024-07-01', concepto: 'Pago vía PagoTIC',        debe: 0,      haber: 18000,  saldo:   9000 },
+      { fecha: '2024-06-07', concepto: 'Boleta de pago 2024 06',  debe: 9000,   haber: 0,      saldo:  -9000 },
+      { fecha: '2024-05-08', concepto: 'Boleta de pago 2024 05',  debe: 9000,   haber: 0,      saldo:      0 },
+      { fecha: '2024-05-01', concepto: 'Pago vía PagoTIC',        debe: 0,      haber: 18000,  saldo:   9000 },
+      { fecha: '2024-04-12', concepto: 'Boleta de pago 2024 03',  debe: 9000,   haber: 0,      saldo:  -9000 },
+      { fecha: '2024-03-18', concepto: 'Boleta de pago 2024 02',  debe: 9000,   haber: 0,      saldo:      0 },
+      { fecha: '2024-03-01', concepto: 'Pago vía PagoTIC',        debe: 0,      haber: 9000,   saldo:   9000 },
+      { fecha: '2024-01-11', concepto: 'Boleta de pago 2023 11',  debe: 9000,   haber: 0,      saldo:      0 },
+      { fecha: '2024-01-01', concepto: 'Pago vía PagoTIC',        debe: 0,      haber: 27000,  saldo:   9000 },
+      { fecha: '2023-11-10', concepto: 'Boleta de pago 2023 10',  debe: 9000,   haber: 0,      saldo: -18000 },
+      { fecha: '2023-10-10', concepto: 'Boleta de pago 2023 09',  debe: 9000,   haber: 0,      saldo:  -9000 },
+      { fecha: '2023-09-19', concepto: 'Boleta de pago 2023 07',  debe: 9000,   haber: 0,      saldo:      0 },
+      { fecha: '2023-09-01', concepto: 'Pago vía PagoTIC',        debe: 0,      haber: 18000,  saldo:   9000 },
+      { fecha: '2023-08-10', concepto: 'Boleta de pago 2023 08',  debe: 9000,   haber: 0,      saldo:  -9000 },
+      { fecha: '2023-07-10', concepto: 'Boleta de pago 2023 06',  debe: 9000,   haber: 0,      saldo:      0 },
+      { fecha: '2023-06-08', concepto: 'Boleta de pago 2023 05',  debe: 9000,   haber: 0,      saldo:  -9000 },
+    ];
+
+    // ── Renderizar tabla ─────────────────────────────────────
+
+    function renderTabla() {
+      const tbody = document.getElementById('tbody-movimientos');
+      tbody.innerHTML = movimientos.map(m => {
+        const debeHtml = m.debe > 0
+          ? `<span class="monto-debe">${formatPeso(m.debe)}</span>`
+          : `<span class="monto-cero">—</span>`;
+
+        const haberHtml = m.haber > 0
+          ? `<span class="monto-haber">${formatPeso(m.haber)}</span>`
+          : `<span class="monto-cero">—</span>`;
+
+        const saldoClass = m.saldo < 0 ? 'saldo-negativo' : 'saldo-positivo';
+        const saldoHtml = `<span class="${saldoClass}">${formatPeso(m.saldo)}</span>`;
+
+        return `<tr>
+          <td class="fecha-col">${formatFecha(m.fecha)}</td>
+          <td>${m.concepto}</td>
+          <td class="cell-number">${debeHtml}</td>
+          <td class="cell-number">${haberHtml}</td>
+          <td class="cell-number">${saldoHtml}</td>
+        </tr>`;
+      }).join('');
+    }
+
+    // ── Saldo card ───────────────────────────────────────────
+
+    function renderSaldo() {
+      const ultimo = movimientos[0];
+      const saldo = ultimo ? ultimo.saldo : 0;
+      const abs = Math.abs(saldo);
+      const display = document.getElementById('saldo-display');
+      const card = document.getElementById('saldo-card');
+
+      if (saldo < 0) {
+        display.textContent = formatPeso(abs);
+        display.className = 'saldo-monto con-deuda';
+        card.className = 'saldo-card con-deuda';
+      } else {
+        display.textContent = 'Al día';
+        display.className = 'saldo-monto al-dia';
+        card.className = 'saldo-card al-dia';
+        card.querySelector('.saldo-desc').textContent = 'No tenés cuotas pendientes.';
+        card.querySelector('.estado-badge').innerHTML = '<i class="fas fa-check-circle"></i> Al día';
+        card.querySelector('.estado-badge').className = 'estado-badge al-dia';
+        card.querySelector('.saldo-label').textContent = 'Estado de cuenta';
+      }
+    }
+
+    // ── Init ─────────────────────────────────────────────────
+
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
+      // Mock cuota habitual — reemplazar por valor de API
+      const cuotaHabitual = 25000;
+      document.getElementById('importe_suscr').value = cuotaHabitual.toLocaleString('es-AR');
+
+      renderTabla();
+      renderSaldo();
+    });
+
+    // ── Lógica de pagos (mantener compatible con API existente) ──
+
+    var t = "";
+
+    $(document).ready(async () => {
+      try {
+        let res = await axios.get("/public/traer_suscripciones", {}, { withCredentials: true });
+        if (res.data) {
+          $("#importe_suscr").val(res.data.importe_sugerido);
+          t = res.data.uuid;
+          if (res.data.suscripciones && res.data.suscripciones.length > 0) {
+            $("#tabla_suscripciones").show();
+            let rows = "";
+            res.data.suscripciones.map(s => {
+              if (parseInt(s.periodos) == 0) s.periodos = "Infinito";
+              let btn = `<button class='btn btn-danger btn-small btn_desuscribir' onclick="btn_desuscribir('${s.id}')">Cancelar</button>`;
+              rows += `<tr><td>${s.status}</td><td>${s.fecha_comienzo}</td><td>${s.periodos}</td><td>${s.importe}</td><td>${btn}</td></tr>`;
+            });
+            $("#table_suscripciones_body").append(rows);
+            $("#div_form_pago").hide();
+          }
+        }
+      } catch(e) {
+        // API no disponible en preview — datos de prueba activos
+      }
+    });
+
+    async function btn_desuscribir(id) {
+      if (!confirm("¿Estás seguro?")) return;
+      $(".btn_desuscribir").prop("disabled", true);
+      let res = await axios.put('/public/cancelar_suscripcion', { id: id });
+      $(".btn_desuscribir").prop("disabled", false);
+      $(".modal-body").html(res.data.text);
+      $(".modal").modal();
+      $('.modal').on('hidden.bs.modal', () => location.reload());
+    }
+
+    $("#btn_pagar").on("click", async () => {
+      $("#btn_pagar").prop("disabled", true);
+      let post_obj = {
+        uuid: t,
+        importe: $("#importe_suscr").val(),
+        es_suscripcion: $("#chk_suscripcion").prop("checked")
+      };
+      let res = await axios.post('/public/crear_pago', post_obj, { withCredentials: true });
+      $("#btn_pagar").prop("disabled", false);
+      if (res.data.stat == false) {
+        $(".modal-body").html(res.data.text);
+        $(".modal").modal();
+      } else {
+        let w = window.open("/public/files/esperando.html");
+        setTimeout(() => { w.location = res.data.data.form_url; }, 200);
+      }
+    });
+  </script>
+
+</body>
+</html>
