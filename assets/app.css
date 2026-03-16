@@ -564,3 +564,26 @@ body {
 .confirmacion-site-link {
   font-size: 0.9rem;
 }
+
+/* ── Bloque contexto pagos (from app-cc.css) ── */
+.pago-contexto {
+  background: #f0f6ff;
+  border-left: 4px solid #0069d9;
+  border-radius: 0 6px 6px 0;
+  padding: 14px 16px;
+  cursor: pointer;
+}
+
+.pago-contexto-titulo {
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: #0069d9;
+}
+
+.pago-contexto p,
+.pago-contexto ul {
+  font-size: 0.85rem;
+  color: #495057;
+  line-height: 1.6;
+  margin-bottom: 6px;
+}
