@@ -10,7 +10,7 @@
   <link href='https://fonts.googleapis.com' rel='preconnect' />
   <link crossorigin='' href='https://fonts.gstatic.com' rel='preconnect' />
   <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap' rel='stylesheet' />
-  <link href='../assets/app-cc.css' rel='stylesheet' />
+  <link href='./assets/app-cc.css' rel='stylesheet' />
   <title>Cuenta Corriente — AGC</title>
 </head>
 
@@ -117,13 +117,18 @@
                 <div class="pago-card">
 
                   <!-- Bloque de contexto (colapsable) -->
-                  <div class="pago-contexto mb-4" data-toggle="collapse" href="#ayuda-como-funciona" role="button" aria-expanded="false" aria-controls="ayuda-como-funciona">
+                  <div class="pago-contexto mb-4" data-toggle="collapse" href="#ayuda-como-funciona" role="button"
+                    aria-expanded="false" aria-controls="ayuda-como-funciona">
                     <div class="pago-contexto-titulo" style="text-decoration:none;">
-                      <i class="fas fa-info-circle mr-1"></i> ¿Cómo funciona? <i class="fas fa-chevron-down ml-1" style="font-size:0.75em;"></i>
+                      <i class="fas fa-info-circle mr-1"></i> ¿Cómo funciona? <i class="fas fa-chevron-down ml-1"
+                        style="font-size:0.75em;"></i>
                     </div>
                     <div class="collapse" id="ayuda-como-funciona">
-                      <p class="mt-2">Alrededor del día 10 de cada mes registramos tu cuota en el estado de cuenta. Podés abonarla cuando quieras — en un pago único o activando el débito automático para que se descuente solo cada mes.</p>
-                      <p class="mb-0">Si pagás más que tu cuota mensual, el saldo a favor se aplica automáticamente a los meses siguientes.</p>
+                      <p class="mt-2">Alrededor del día 10 de cada mes registramos tu cuota en el estado de cuenta.
+                        Podés abonarla cuando quieras — en un pago único o activando el débito automático para que se
+                        descuente solo cada mes.</p>
+                      <p class="mb-0">Si pagás más que tu cuota mensual, el saldo a favor se aplica automáticamente a
+                        los meses siguientes.</p>
                     </div>
                   </div>
 
@@ -137,7 +142,8 @@
                         <input class="form-control" id="importe_suscr" type="text" placeholder="0" required>
                       </div>
                       <div class="field-help mt-1">
-                        Tu cuota habitual es <strong id="cuota-habitual">$ 25.000</strong>. Podés ingresar un monto distinto.
+                        Tu cuota habitual es <strong id="cuota-habitual">$ 25.000</strong>. Podés ingresar un monto
+                        distinto.
                       </div>
                     </div>
                   </form>
@@ -155,13 +161,15 @@
 
                   <p class="pago-pagotic-nota mt-3 mb-0">
                     Los pagos se procesan a través de PagoTIC, bajo sus
-                    <a href="https://paypertic.com/terminos-y-condiciones-para-el-pagador.html" target="_blank">términos y condiciones</a>.
+                    <a href="https://paypertic.com/terminos-y-condiciones-para-el-pagador.html" target="_blank">términos
+                      y condiciones</a>.
                   </p>
                 </div>
               </div>
 
               <div id="tabla_suscripciones" style="display: none;" class="mt-4">
-                <p class="text-muted mb-2" style="font-size: 0.88rem;"><strong>Débito automático activo</strong> — se descuenta el monto indicado alrededor del día 10 de cada mes.</p>
+                <p class="text-muted mb-2" style="font-size: 0.88rem;"><strong>Débito automático activo</strong> — se
+                  descuenta el monto indicado alrededor del día 10 de cada mes.</p>
                 <table id="tabla_suscripciones_table" class="tabla-suscripciones table">
                   <thead>
                     <tr>
@@ -244,8 +252,8 @@
     // ── Helpers ──────────────────────────────────────────────
 
     function formatFecha(iso) {
-      const meses = ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
-                     'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+      const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+        'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
       const [y, m, d] = iso.split('-').map(Number);
       return `${d} ${meses[m - 1]} ${y}`;
     }
@@ -258,47 +266,47 @@
     // ── Datos de prueba (reemplazar por API) ─────────────────
 
     const movimientos = [
-      { fecha: '2026-03-12', concepto: 'Pago vía PagoTIC',        debe: 0,      haber: 27000,  saldo:  18000 },
-      { fecha: '2026-03-09', concepto: 'Boleta de pago 2026 03',  debe: 9000,   haber: 0,      saldo:  -9000 },
-      { fecha: '2026-02-04', concepto: 'Boleta de pago 2026 02',  debe: 9000,   haber: 0,      saldo:      0 },
-      { fecha: '2026-01-15', concepto: 'Pago vía PagoTIC',        debe: 0,      haber: 27000,  saldo:   9000 },
-      { fecha: '2026-01-12', concepto: 'Boleta de pago 2026 01',  debe: 9000,   haber: 0,      saldo: -18000 },
-      { fecha: '2025-11-13', concepto: 'Boleta de pago 2025 11',  debe: 9000,   haber: 0,      saldo: -27000 },
-      { fecha: '2025-10-03', concepto: 'Boleta de pago 2025 10',  debe: 9000,   haber: 0,      saldo: -18000 },
-      { fecha: '2025-09-20', concepto: 'Pago vía PagoTIC',        debe: 0,      haber: 54000,  saldo:  -9000 },
-      { fecha: '2025-09-09', concepto: 'Boleta de pago 2025 09',  debe: 9000,   haber: 0,      saldo: -63000 },
-      { fecha: '2025-08-07', concepto: 'Boleta de pago 2025 08',  debe: 9000,   haber: 0,      saldo: -54000 },
-      { fecha: '2025-07-11', concepto: 'Boleta de pago 2025 07',  debe: 9000,   haber: 0,      saldo: -45000 },
-      { fecha: '2025-06-09', concepto: 'Boleta de pago 2025 06',  debe: 9000,   haber: 0,      saldo: -36000 },
-      { fecha: '2025-05-05', concepto: 'Boleta de pago 2025 05',  debe: 9000,   haber: 0,      saldo: -27000 },
-      { fecha: '2025-04-09', concepto: 'Boleta de pago 2025 04',  debe: 9000,   haber: 0,      saldo: -18000 },
-      { fecha: '2025-03-06', concepto: 'Boleta de pago 2025 03',  debe: 9000,   haber: 0,      saldo:  -9000 },
-      { fecha: '2025-02-28', concepto: 'Pago vía PagoTIC',        debe: 0,      haber: 27000,  saldo:      0 },
-      { fecha: '2025-02-05', concepto: 'Boleta de pago 2025 02',  debe: 9000,   haber: 0,      saldo: -27000 },
-      { fecha: '2025-01-09', concepto: 'Boleta de pago 2025 01',  debe: 9000,   haber: 0,      saldo: -18000 },
-      { fecha: '2024-12-09', concepto: 'Boleta de pago 2024 12',  debe: 9000,   haber: 0,      saldo:  -9000 },
-      { fecha: '2024-11-20', concepto: 'Pago vía PagoTIC',        debe: 0,      haber: 36000,  saldo:      0 },
-      { fecha: '2024-11-05', concepto: 'Boleta de pago 2024 11',  debe: 9000,   haber: 0,      saldo: -36000 },
-      { fecha: '2024-10-07', concepto: 'Boleta de pago 2024 10',  debe: 9000,   haber: 0,      saldo: -27000 },
-      { fecha: '2024-09-05', concepto: 'Boleta de pago 2024 09',  debe: 9000,   haber: 0,      saldo: -18000 },
-      { fecha: '2024-08-15', concepto: 'Boleta de pago 2024 08',  debe: 9000,   haber: 0,      saldo:  -9000 },
-      { fecha: '2024-07-04', concepto: 'Boleta de pago 2024 07',  debe: 9000,   haber: 0,      saldo:      0 },
-      { fecha: '2024-07-01', concepto: 'Pago vía PagoTIC',        debe: 0,      haber: 18000,  saldo:   9000 },
-      { fecha: '2024-06-07', concepto: 'Boleta de pago 2024 06',  debe: 9000,   haber: 0,      saldo:  -9000 },
-      { fecha: '2024-05-08', concepto: 'Boleta de pago 2024 05',  debe: 9000,   haber: 0,      saldo:      0 },
-      { fecha: '2024-05-01', concepto: 'Pago vía PagoTIC',        debe: 0,      haber: 18000,  saldo:   9000 },
-      { fecha: '2024-04-12', concepto: 'Boleta de pago 2024 03',  debe: 9000,   haber: 0,      saldo:  -9000 },
-      { fecha: '2024-03-18', concepto: 'Boleta de pago 2024 02',  debe: 9000,   haber: 0,      saldo:      0 },
-      { fecha: '2024-03-01', concepto: 'Pago vía PagoTIC',        debe: 0,      haber: 9000,   saldo:   9000 },
-      { fecha: '2024-01-11', concepto: 'Boleta de pago 2023 11',  debe: 9000,   haber: 0,      saldo:      0 },
-      { fecha: '2024-01-01', concepto: 'Pago vía PagoTIC',        debe: 0,      haber: 27000,  saldo:   9000 },
-      { fecha: '2023-11-10', concepto: 'Boleta de pago 2023 10',  debe: 9000,   haber: 0,      saldo: -18000 },
-      { fecha: '2023-10-10', concepto: 'Boleta de pago 2023 09',  debe: 9000,   haber: 0,      saldo:  -9000 },
-      { fecha: '2023-09-19', concepto: 'Boleta de pago 2023 07',  debe: 9000,   haber: 0,      saldo:      0 },
-      { fecha: '2023-09-01', concepto: 'Pago vía PagoTIC',        debe: 0,      haber: 18000,  saldo:   9000 },
-      { fecha: '2023-08-10', concepto: 'Boleta de pago 2023 08',  debe: 9000,   haber: 0,      saldo:  -9000 },
-      { fecha: '2023-07-10', concepto: 'Boleta de pago 2023 06',  debe: 9000,   haber: 0,      saldo:      0 },
-      { fecha: '2023-06-08', concepto: 'Boleta de pago 2023 05',  debe: 9000,   haber: 0,      saldo:  -9000 },
+      { fecha: '2026-03-12', concepto: 'Pago vía PagoTIC', debe: 0, haber: 27000, saldo: 18000 },
+      { fecha: '2026-03-09', concepto: 'Boleta de pago 2026 03', debe: 9000, haber: 0, saldo: -9000 },
+      { fecha: '2026-02-04', concepto: 'Boleta de pago 2026 02', debe: 9000, haber: 0, saldo: 0 },
+      { fecha: '2026-01-15', concepto: 'Pago vía PagoTIC', debe: 0, haber: 27000, saldo: 9000 },
+      { fecha: '2026-01-12', concepto: 'Boleta de pago 2026 01', debe: 9000, haber: 0, saldo: -18000 },
+      { fecha: '2025-11-13', concepto: 'Boleta de pago 2025 11', debe: 9000, haber: 0, saldo: -27000 },
+      { fecha: '2025-10-03', concepto: 'Boleta de pago 2025 10', debe: 9000, haber: 0, saldo: -18000 },
+      { fecha: '2025-09-20', concepto: 'Pago vía PagoTIC', debe: 0, haber: 54000, saldo: -9000 },
+      { fecha: '2025-09-09', concepto: 'Boleta de pago 2025 09', debe: 9000, haber: 0, saldo: -63000 },
+      { fecha: '2025-08-07', concepto: 'Boleta de pago 2025 08', debe: 9000, haber: 0, saldo: -54000 },
+      { fecha: '2025-07-11', concepto: 'Boleta de pago 2025 07', debe: 9000, haber: 0, saldo: -45000 },
+      { fecha: '2025-06-09', concepto: 'Boleta de pago 2025 06', debe: 9000, haber: 0, saldo: -36000 },
+      { fecha: '2025-05-05', concepto: 'Boleta de pago 2025 05', debe: 9000, haber: 0, saldo: -27000 },
+      { fecha: '2025-04-09', concepto: 'Boleta de pago 2025 04', debe: 9000, haber: 0, saldo: -18000 },
+      { fecha: '2025-03-06', concepto: 'Boleta de pago 2025 03', debe: 9000, haber: 0, saldo: -9000 },
+      { fecha: '2025-02-28', concepto: 'Pago vía PagoTIC', debe: 0, haber: 27000, saldo: 0 },
+      { fecha: '2025-02-05', concepto: 'Boleta de pago 2025 02', debe: 9000, haber: 0, saldo: -27000 },
+      { fecha: '2025-01-09', concepto: 'Boleta de pago 2025 01', debe: 9000, haber: 0, saldo: -18000 },
+      { fecha: '2024-12-09', concepto: 'Boleta de pago 2024 12', debe: 9000, haber: 0, saldo: -9000 },
+      { fecha: '2024-11-20', concepto: 'Pago vía PagoTIC', debe: 0, haber: 36000, saldo: 0 },
+      { fecha: '2024-11-05', concepto: 'Boleta de pago 2024 11', debe: 9000, haber: 0, saldo: -36000 },
+      { fecha: '2024-10-07', concepto: 'Boleta de pago 2024 10', debe: 9000, haber: 0, saldo: -27000 },
+      { fecha: '2024-09-05', concepto: 'Boleta de pago 2024 09', debe: 9000, haber: 0, saldo: -18000 },
+      { fecha: '2024-08-15', concepto: 'Boleta de pago 2024 08', debe: 9000, haber: 0, saldo: -9000 },
+      { fecha: '2024-07-04', concepto: 'Boleta de pago 2024 07', debe: 9000, haber: 0, saldo: 0 },
+      { fecha: '2024-07-01', concepto: 'Pago vía PagoTIC', debe: 0, haber: 18000, saldo: 9000 },
+      { fecha: '2024-06-07', concepto: 'Boleta de pago 2024 06', debe: 9000, haber: 0, saldo: -9000 },
+      { fecha: '2024-05-08', concepto: 'Boleta de pago 2024 05', debe: 9000, haber: 0, saldo: 0 },
+      { fecha: '2024-05-01', concepto: 'Pago vía PagoTIC', debe: 0, haber: 18000, saldo: 9000 },
+      { fecha: '2024-04-12', concepto: 'Boleta de pago 2024 03', debe: 9000, haber: 0, saldo: -9000 },
+      { fecha: '2024-03-18', concepto: 'Boleta de pago 2024 02', debe: 9000, haber: 0, saldo: 0 },
+      { fecha: '2024-03-01', concepto: 'Pago vía PagoTIC', debe: 0, haber: 9000, saldo: 9000 },
+      { fecha: '2024-01-11', concepto: 'Boleta de pago 2023 11', debe: 9000, haber: 0, saldo: 0 },
+      { fecha: '2024-01-01', concepto: 'Pago vía PagoTIC', debe: 0, haber: 27000, saldo: 9000 },
+      { fecha: '2023-11-10', concepto: 'Boleta de pago 2023 10', debe: 9000, haber: 0, saldo: -18000 },
+      { fecha: '2023-10-10', concepto: 'Boleta de pago 2023 09', debe: 9000, haber: 0, saldo: -9000 },
+      { fecha: '2023-09-19', concepto: 'Boleta de pago 2023 07', debe: 9000, haber: 0, saldo: 0 },
+      { fecha: '2023-09-01', concepto: 'Pago vía PagoTIC', debe: 0, haber: 18000, saldo: 9000 },
+      { fecha: '2023-08-10', concepto: 'Boleta de pago 2023 08', debe: 9000, haber: 0, saldo: -9000 },
+      { fecha: '2023-07-10', concepto: 'Boleta de pago 2023 06', debe: 9000, haber: 0, saldo: 0 },
+      { fecha: '2023-06-08', concepto: 'Boleta de pago 2023 05', debe: 9000, haber: 0, saldo: -9000 },
     ];
 
     // ── Renderizar tabla ─────────────────────────────────────
@@ -386,7 +394,7 @@
             $("#div_form_pago").hide();
           }
         }
-      } catch(e) {
+      } catch (e) {
         // API no disponible en preview — datos de prueba activos
       }
     });
@@ -421,4 +429,5 @@
   </script>
 
 </body>
+
 </html>
