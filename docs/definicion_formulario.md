@@ -138,7 +138,7 @@ Visible y requerido solo cuando `tipo_relacion_laboral` == `dependencia_con_reci
 | Value | Texto visible |
 |-------|---------------|
 | *(vacío — placeholder)* | Actividad principal... |
-| `informatica` | Informática (software, hardware y servicios informáticos) |
+| `informatica` | Informática (software, hardware y servicios TI) |
 | `otro_sector` | Otro sector |
 | `no_se` | No lo sé |
 
