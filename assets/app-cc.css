@@ -5,26 +5,31 @@
 
 /* ── Variables ── */
 :root {
-  --azul:         #0080eb;
-  --azul-oscuro:  #0069d9;
-  --azul-footer:  #0027ff;
-  --texto:        #212529;
-  --gris:         #6c757d;
-  --borde:        #dee2e6;
-  --fondo:        #f8f9fa;
-  --verde:        #198754;
-  --verde-claro:  #d1e7dd;
-  --rojo:         #dc3545;
-  --rojo-claro:   #f8d7da;
-  --naranja:      #e67e22;
-  --naranja-claro:#fef3e2;
-  --blanco:       #ffffff;
+  --azul: #0080eb;
+  --azul-oscuro: #0069d9;
+  --azul-footer: #0027ff;
+  --texto: #212529;
+  --gris: #6c757d;
+  --borde: #dee2e6;
+  --fondo: #f8f9fa;
+  --verde: #198754;
+  --verde-claro: #d1e7dd;
+  --rojo: #dc3545;
+  --rojo-claro: #f8d7da;
+  --naranja: #e67e22;
+  --naranja-claro: #fef3e2;
+  --blanco: #ffffff;
 }
 
 /* ── Reset y base ── */
-*, *::before, *::after { box-sizing: border-box; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -127,8 +132,13 @@ body {
   line-height: 1;
 }
 
-.saldo-monto.con-deuda { color: var(--naranja); }
-.saldo-monto.al-dia    { color: var(--verde); }
+.saldo-monto.con-deuda {
+  color: var(--naranja);
+}
+
+.saldo-monto.al-dia {
+  color: var(--verde);
+}
 
 .saldo-desc {
   font-size: 0.82rem;
@@ -188,8 +198,13 @@ body {
   border: none;
 }
 
-.table-movimientos thead th:first-child { border-radius: 8px 0 0 0; }
-.table-movimientos thead th:last-child  { border-radius: 0 8px 0 0; }
+.table-movimientos thead th:first-child {
+  border-radius: 8px 0 0 0;
+}
+
+.table-movimientos thead th:last-child {
+  border-radius: 0 8px 0 0;
+}
 
 .table-movimientos tbody tr {
   border-bottom: 1px solid var(--borde);
@@ -257,7 +272,6 @@ body {
   font-weight: 600;
   font-size: 0.88rem;
   color: var(--azul-oscuro);
-  margin-bottom: 8px;
 }
 
 .pago-contexto p {
@@ -331,8 +345,13 @@ body {
   padding: 10px 14px;
 }
 
-.tabla-suscripciones thead th:first-child { border-radius: 8px 0 0 0; }
-.tabla-suscripciones thead th:last-child  { border-radius: 0 8px 0 0; }
+.tabla-suscripciones thead th:first-child {
+  border-radius: 8px 0 0 0;
+}
+
+.tabla-suscripciones thead th:last-child {
+  border-radius: 0 8px 0 0;
+}
 
 .tabla-suscripciones td {
   padding: 10px 14px;
@@ -390,7 +409,9 @@ body {
   color: var(--texto);
 }
 
-.ayuda-item:last-child { border-bottom: none; }
+.ayuda-item:last-child {
+  border-bottom: none;
+}
 
 .ayuda-item i {
   width: 32px;
@@ -426,7 +447,7 @@ footer {
 }
 
 .social-media-icon:hover {
-  color: rgba(255,255,255,0.75);
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .footer-copyright {
@@ -436,7 +457,8 @@ footer {
 }
 
 /* ── Legends / headers de sección ── */
-legend, h2 {
+legend,
+h2 {
   font-weight: 700 !important;
   color: var(--azul) !important;
 }
@@ -445,15 +467,19 @@ legend, h2 {
 .table-movimientos tbody tr:nth-child(even) {
   background-color: var(--fondo);
 }
+
 .table-movimientos tbody tr:nth-child(odd) {
   background-color: var(--blanco);
 }
+
 .table-movimientos tbody tr:hover {
   background: #e8f0fd !important;
 }
 
 /* ── Columnas opcionales mobile ── */
-.col-mobile-hide { /* clase reservada — no hace nada en desktop */ }
+.col-mobile-hide {
+  /* clase reservada — no hace nada en desktop */
+}
 
 /* ── Responsivo ── */
 @media (max-width: 576px) {
