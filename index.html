@@ -266,7 +266,7 @@
                         </div>
                       </div>
 
-                      <!-- 3) Recibo de Sueldo (Aparece para dependencia_con_recibo y tercerizado_consultora) -->
+                      <!-- 3) Recibo de Sueldo (Aparece para dependencia_con_recibo) -->
                       <div class="row" id="grupo_recibo" style="display:none;">
                         <div class="form-group col-md-12">
                           <label class="control-label" for="doc_recibo">Último recibo de sueldo</label>
@@ -422,31 +422,7 @@
                         </div>
                       </div>
 
-                      <script>
-                        document.addEventListener('DOMContentLoaded', function () {
-                          const container = document.getElementById('readMoreContainer');
-                          const toggle = document.getElementById('readMoreToggle');
-                          const fade = document.getElementById('readMoreFade');
 
-                          function toggleReadMore(e) {
-                            if (e) e.preventDefault();
-                            if (container.style.maxHeight === '4.5em') {
-                              container.style.maxHeight = '1000px';
-                              fade.style.opacity = '0';
-                              toggle.innerHTML = 'Leer menos <i class="fas fa-chevron-up ml-1"></i>';
-                            } else {
-                              container.style.maxHeight = '4.5em';
-                              fade.style.opacity = '1';
-                              toggle.innerHTML = 'Leer más <i class="fas fa-chevron-down ml-1"></i>';
-                            }
-                          }
-
-                          if (toggle && container) {
-                            toggle.addEventListener('click', toggleReadMore);
-                            container.addEventListener('click', toggleReadMore);
-                          }
-                        });
-                      </script>
 
                       <div class="form-group required mb-4">
                         <div class="cuota-slider-container mb-3 mt-1">

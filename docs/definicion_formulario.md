@@ -2,7 +2,7 @@
 
 **Proyecto:** Sumate / Formulario de Afiliación  
 **Organización:** Asociación Gremial de Computación (AGC)  
-**Versión del documento:** 1.4 — 10/03/2026  
+**Versión del documento:** 1.5 — 19/03/2026  
 **Idioma del formulario:** Español (Argentina)
 
 ---
@@ -144,6 +144,9 @@ Visible y requerido solo cuando `tipo_relacion_laboral` == `dependencia_con_reci
 
 ### Grupo: Lugar de trabajo
 
+Visible y requerido cuando `tipo_relacion_laboral` == `dependencia_con_recibo`, `facturo_regular` o `socio_cooperativa`.  
+No se muestra para `independiente`, `no_trabajando` ni `dependencia_no_registrada`.
+
 **Label del select:** "¿Desde dónde trabajás habitualmente?"
 
 **Opciones:**
@@ -165,7 +168,7 @@ Visible y requerido solo cuando `tipo_relacion_laboral` == `dependencia_con_reci
 Visible cuando `lugar_trabajo` == `hibrido`.
 
 **Label:** "¿Cuántos días hacés de home office?"  
-**Tipo:** select o radio buttons (opciones: 0, 1, 2, 3, 4, 5)  
+**Tipo:** range slider (0–5, paso 1)  
 **Ayuda:** "Indicá cuántos días por semana solés trabajar desde casa."
 
 ---
@@ -185,6 +188,8 @@ Visible cuando `lugar_trabajo` == `sede` o `hibrido`.
 
 ### Grupo: Recibo de sueldo
 
+Visible y requerido cuando `tipo_relacion_laboral` == `dependencia_con_recibo`.
+
 **Label:** "Último recibo de sueldo"
 
 **Ayuda:**
@@ -202,6 +207,7 @@ Visible cuando `lugar_trabajo` == `sede` o `hibrido`.
 |-------|-------|-----------|
 | `dependencia_con_recibo` | "Información adicional (opcional)" | ❌ |
 | `facturo_regular` | "Información adicional (opcional)" | ❌ |
+| `dependencia_no_registrada` | "Información adicional (opcional)" | ❌ |
 | `socio_cooperativa` | "Información adicional (opcional)" | ❌ |
 | `independiente` | "Información adicional (opcional)" | ❌ |
 | `no_trabajando` | "Describí tu situación" | ✅ |
@@ -230,7 +236,7 @@ Visible cuando `lugar_trabajo` == `sede` o `hibrido`.
 **Paso:** $1.000  
 **Campo de texto:** Prefijo `$ ARS` y sufijo `/mes`
 
-**Texto expansible (read-more):**
+**Sección colapsable (cerrada por defecto, componente `pago-contexto`):**
 > ¿Cómo funciona? La cuota sindical es la forma en que sostenemos el gremio entre todos. Con esa contribución financiamos los servicios, beneficios y la estructura que defiende a los trabajadores y trabajadoras informáticas.  
 > En muchos gremios equivale al 3% del salario bruto. En AGC elegimos un modelo flexible: podés definir un monto mensual fijo según tus posibilidades.  
 > Tu aporte permite sostener:  
@@ -256,6 +262,16 @@ Al marcarse, el slider y el campo de monto se deshabilitan (visualmente atenuado
 
 **Label:** "¿Qué te motivó a afiliarte? (opcional)"  
 **Subtexto:** "Podés elegir más de una opción."
+
+**Opciones (checkboxes):**
+
+| ID | Texto visible |
+|----|---------------|
+| `motivo_beneficios` | Acceder a beneficios y descuentos |
+| `motivo_legal` | Contar con asesoramiento legal |
+| `motivo_derechos` | Estar informado sobre mis derechos laborales |
+| `motivo_acomp` | Acompañar la organización del sector IT |
+| `motivo_participar` | Participar activamente en el gremio |
 
 ---
 
